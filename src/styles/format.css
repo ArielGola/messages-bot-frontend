@@ -19,6 +19,9 @@
 
 .tl-background {
     background-color: rgb(80, 80, 80);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .tr-background {
@@ -31,4 +34,34 @@
 
 .login-card-width {
     width: 40vw;
+}
+
+.sup-bar {
+    background-color: aqua;
+    height: 8vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+.comp-content {
+    background-color: antiquewhite;
+    height: 84vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.down-bar {
+    background-color: rgb(187, 187, 27);
+    height: 8vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
 }
