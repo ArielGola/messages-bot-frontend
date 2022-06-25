@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+
+import MessagesView from './MessagesView';
 
 function MessagesInterface() {
 
     let navigate = useNavigate();
+
+    const [CreateMsg, setCreateMsg] = useState(false);
 
     return (
         <div className="one-container">
@@ -15,7 +19,12 @@ function MessagesInterface() {
                     hreherhef
                 </div>
                 <div className="down-bar">
-                    <button class="btn btn-primary ml-3">New Message</button>
+                    <button 
+                        class="btn btn-primary ml-3"
+                        onClick={() => setCreateMsg(true)}
+                    >
+                        New Message
+                    </button>
                     <button 
                         class="btn btn-primary ml-3"
                         onClick={() => navigate('/messages/categories')}
@@ -31,7 +40,7 @@ function MessagesInterface() {
                 </div>
             </div>
             <div className="two-container tr-background tr-format">
-
+                <MessagesView />
             </div>
         </div>
     )
