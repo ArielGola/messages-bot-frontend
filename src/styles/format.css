@@ -29,7 +29,9 @@
 }
 
 .tr-format {
-    position: static;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 .login-card-width {
@@ -43,6 +45,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: left;
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: rgb(80, 80, 80);
+    top: 0;
+    box-shadow: 0px 5px 10px 10px rgba(40, 40, 40, .2);
 }
 
 .comp-content {
@@ -51,7 +58,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+    overflow-y: scroll;
 }
 
 .down-bar {
@@ -61,8 +69,34 @@
     flex-direction: row;
     align-items: center;
     justify-content: left;
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: rgb(80, 80, 80);
+    top: 100vh;
+    box-shadow: 10px 10px 10px 20px rgba(40, 40, 40, .3);
 }
 
-.w-container {
+.desc-w-container {
     width: 35vw;
+}
+
+.msg-w-container {
+    width: 45vw;
+}
+
+
+
+.comp-content::-webkit-scrollbar {
+    width: 16px;
+}
+  
+.comp-content::-webkit-scrollbar-track {
+    background: rgb(80, 80, 80);
+    border-radius: 20px;
+}
+  
+.comp-content::-webkit-scrollbar-thumb {
+    background-color: rgb(120, 120, 120);
+    border-radius: 20px;
+    border: 6px solid rgb(80, 80, 80);
 }

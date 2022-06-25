@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 function MessagesView() {
     return (
-        <div class="card w-container">
-            <h3 class="card-header">Message Description</h3>
+        <div class="card desc-w-container">
+            <h3 class="card-header bg-primary text-white">Message Description</h3>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">To: 43524567</li>
                 <li class="list-group-item">Date: 05/06/2022 At: 09:44</li>

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import MessagesView from './MessagesView';
+import IndividualMsg from '../IndividualMsg';
 
 function MessagesInterface() {
 
@@ -16,7 +17,14 @@ function MessagesInterface() {
                     <button class="btn btn-primary ml-3"><i className="fas fa-bars fa-lg"></i></button>
                 </div>
                 <div className="comp-content">
-                    hreherhef
+                    
+                    <IndividualMsg />
+                    <IndividualMsg />
+                    <IndividualMsg />
+                    <IndividualMsg />
+                    <IndividualMsg />
+                    <IndividualMsg />
+
                 </div>
                 <div className="down-bar">
                     <button 
