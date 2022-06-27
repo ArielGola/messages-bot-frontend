@@ -1,6 +1,9 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 
+import IndividualMsg from '../MessagesComponents/IndividualMsg';
+import OneHistoryMsg from './OneHistoryMsg';
+
 function HistoryInterface() {
 
     let navigate = useNavigate();
@@ -14,12 +17,23 @@ function HistoryInterface() {
                             <button class="btn btn-primary ml-3"><i className="fas fa-bars fa-lg"></i></button>
                         </div>
                         <div className="comp-content">
-                            hreherhef
+
+                            <div className="mt-4 align-title"> 
+                                <h3 className='text-white'>Messages History</h3>
+                            </div>
+
+                            <IndividualMsg />
+                            <IndividualMsg />
+                            <IndividualMsg />
+                            <IndividualMsg />
+                            <IndividualMsg />
+                            <IndividualMsg />
+
                         </div>
                         <div className="down-bar">
                             <button 
                                 class="btn btn-primary ml-3"
-                                onClick={() => navigate('/messages/categories')}
+                                onClick={() => navigate('/messages')}
                             >
                                 Messages
                             </button>
@@ -29,7 +43,7 @@ function HistoryInterface() {
                 </div>
             </div>
             <div className="two-container tr-background tr-format">
-
+                <OneHistoryMsg />
             </div>
         </div>
     )

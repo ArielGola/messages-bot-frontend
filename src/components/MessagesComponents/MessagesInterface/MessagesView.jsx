@@ -2,7 +2,7 @@ import React from 'react';
 
 function MessagesView() {
     return (
-        <div class="card desc-w-container">
+        <div class="card border-primary desc-w-container">
             <h3 class="card-header bg-primary text-white">Message Description</h3>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">To: 43524567</li>

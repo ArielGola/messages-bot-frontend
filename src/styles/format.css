@@ -100,3 +100,12 @@
     border-radius: 20px;
     border: 6px solid rgb(80, 80, 80);
 }
+
+
+.align-title {
+    width: 40vw;
+}
+
+.categories-labels {
+    width: 45vw;
+}

@@ -17,6 +17,10 @@ function MessagesInterface() {
                     <button class="btn btn-primary ml-3"><i className="fas fa-bars fa-lg"></i></button>
                 </div>
                 <div className="comp-content">
+
+                    <div className="mt-4 align-title"> 
+                        <h3 className='text-white'>Messages List</h3>
+                    </div>
                     
                     <IndividualMsg />
                     <IndividualMsg />
