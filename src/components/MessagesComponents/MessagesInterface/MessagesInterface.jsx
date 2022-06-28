@@ -3,12 +3,13 @@ import {useNavigate} from 'react-router-dom';
 
 import MessagesView from './MessagesView';
 import IndividualMsg from '../IndividualMsg';
+import EditOrCreateMsg from '../EditOrCreateMsg';
 
 function MessagesInterface() {
 
     let navigate = useNavigate();
 
-    const [CreateMsg, setCreateMsg] = useState(false);
+    const [EditCreate, setEditCreate] = useState(false);
 
     return (
         <div className="one-container">
@@ -33,7 +34,7 @@ function MessagesInterface() {
                 <div className="down-bar">
                     <button 
                         class="btn btn-primary ml-3"
-                        onClick={() => setCreateMsg(true)}
+                        onClick={() => setEditCreate(!EditCreate)}
                     >
                         New Message
                     </button>
@@ -52,7 +53,12 @@ function MessagesInterface() {
                 </div>
             </div>
             <div className="two-container tr-background tr-format">
-                <MessagesView />
+                {
+                    EditCreate ?
+                    <EditOrCreateMsg />
+                    :
+                    <MessagesView />
+                }
             </div>
         </div>
     )
