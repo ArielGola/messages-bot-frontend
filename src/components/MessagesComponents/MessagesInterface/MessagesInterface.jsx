@@ -3,13 +3,19 @@ import {useNavigate} from 'react-router-dom';
 
 import MessagesView from './MessagesView';
 import IndividualMsg from '../IndividualMsg';
-import EditOrCreateMsg from '../EditOrCreateMsg';
+import CreateMsg from '../CreateMsg';
 
 function MessagesInterface() {
 
     let navigate = useNavigate();
 
-    const [EditCreate, setEditCreate] = useState(false);
+    const [Create, setCreate] = useState(false);
+    const [IsEdit, setIsEdit] = useState(false);
+
+    const handleEditConst = (newValue) => {
+        setIsEdit(newValue);
+        setCreate(!newValue);
+    };
 
     return (
         <div className="one-container">
@@ -54,10 +60,10 @@ function MessagesInterface() {
             </div>
             <div className="two-container tr-background tr-format">
                 {
-                    EditCreate ?
-                    <EditOrCreateMsg />
+                    Create ?
+                    <CreateMsg />
                     :
-                    <MessagesView />
+                    <MessagesView functionIsEdit={handleEditConst} />
                 }
             </div>
         </div>

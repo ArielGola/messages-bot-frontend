@@ -1,6 +1,7 @@
 import React from 'react'
 
-function EditOrCreateMsg() {
+function CreateMsg() {
+
     return (
         <div class="card border-primary desc-w-container">
             <h3 class="card-header bg-primary text-white">New Message</h3>
@@ -71,4 +72,4 @@ function EditOrCreateMsg() {
     )
 }
 
-export default EditOrCreateMsg
+export default CreateMsg
