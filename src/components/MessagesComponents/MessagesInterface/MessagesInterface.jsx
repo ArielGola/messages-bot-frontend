@@ -40,7 +40,7 @@ function MessagesInterface() {
                 <div className="down-bar">
                     <button 
                         class="btn btn-primary ml-3"
-                        onClick={() => setEditCreate(!EditCreate)}
+                        onClick={() => setCreate(!Create)}
                     >
                         New Message
                     </button>
