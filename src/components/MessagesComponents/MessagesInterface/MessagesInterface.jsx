@@ -4,17 +4,38 @@ import {useNavigate} from 'react-router-dom';
 import MessagesView from './MessagesView';
 import IndividualMsg from '../IndividualMsg';
 import CreateMsg from '../CreateMsg';
+import EditMsg from '../EditMsg';
 
 function MessagesInterface() {
 
     let navigate = useNavigate();
 
     const [Create, setCreate] = useState(false);
-    const [IsEdit, setIsEdit] = useState(false);
+    const [Edit, setEdit] = useState(false);
+    const [View, setView] = useState(true);
 
     const handleEditConst = (newValue) => {
-        setIsEdit(newValue);
+        setEdit(newValue);
         setCreate(!newValue);
+        setView(!newValue);
+    };
+
+    const handleDoneBackBtn = (newValue) => {
+        setCreate(!newValue);
+        setEdit(!newValue);
+        setView(newValue);
+    };
+
+    const newMsgBtn = () => {
+        if (View) {
+            setCreate(!Create);
+            setEdit(Create);
+            setView(Create);
+        } else {
+            setCreate(View);
+            setEdit(View);
+            setView(!View);
+        };
     };
 
     return (
@@ -40,7 +61,7 @@ function MessagesInterface() {
                 <div className="down-bar">
                     <button 
                         class="btn btn-primary ml-3"
-                        onClick={() => setCreate(!Create)}
+                        onClick={() => newMsgBtn()}
                     >
                         New Message
                     </button>
@@ -61,9 +82,12 @@ function MessagesInterface() {
             <div className="two-container tr-background tr-format">
                 {
                     Create ?
-                    <CreateMsg />
+                    <CreateMsg functionDoneBack={handleDoneBackBtn} />
                     :
-                    <MessagesView functionIsEdit={handleEditConst} />
+                    View ?
+                    <MessagesView functionEdit={handleEditConst} />
+                    :
+                    <EditMsg functionDoneBack={handleDoneBackBtn} />
                 }
             </div>
         </div>

@@ -1,13 +1,13 @@
 import React from 'react'
 
-function CreateMsg(props) {
+function EditMsg(props) {
 
     const backToMsgs = (newValue) => {
         const doneBack = props.functionDoneBack;
         doneBack(newValue);
     };
 
-    const createMsgFunction = () => {
+    const editMsgFunction = () => {
         
         backToMsgs(true);
 
@@ -15,7 +15,7 @@ function CreateMsg(props) {
 
     return (
         <div class="card border-primary desc-w-container">
-            <h3 class="card-header bg-primary text-white">New Message</h3>
+            <h3 class="card-header bg-primary text-white">Edit Message</h3>
             <div className="card-body flex-wrap">
                 <div className="form-row">  
                     <div class="form-group col-md-6">
@@ -77,11 +77,11 @@ function CreateMsg(props) {
                 </div>
             </div>
             <div class="card-footer text-muted">
-                <button className='btn btn-primary mr-3' onClick={() => createMsgFunction()}>Done</button>
+                <button className='btn btn-primary mr-3' onClick={() => editMsgFunction()}>Done</button>
                 <button className='btn btn-secondary' onClick={() => backToMsgs(true)}>Back</button>
             </div>
         </div>
     )
 }
 
-export default CreateMsg
+export default EditMsg

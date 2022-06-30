@@ -3,7 +3,7 @@ import React from 'react';
 function MessagesView(props) {
 
     const handleIsEdit = (newValue) => {
-        const changeIsEdit = props.functionIsEdit;
+        const changeIsEdit = props.functionEdit;
         changeIsEdit(newValue);
     };
 

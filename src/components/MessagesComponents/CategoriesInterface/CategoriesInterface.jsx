@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import IndividualMsg from '../IndividualMsg';
 import MessagesView from '../MessagesInterface/MessagesView';
+import EditMsg from '../EditMsg';
 
 function CategoriesInterface() {
 
     let navigate = useNavigate();
+    
+    const [Edit, setEdit] = useState(false);
+    const [View, setView] = useState(true);
+
+    const handleEditConst = (newValue) => {
+        setEdit(newValue);
+        setView(!newValue);
+    };
+
+    const handleDoneBackBtn = (newValue) => {
+        setEdit(!newValue);
+        setView(newValue);
+    };
 
     return (
         <div className="one-container">
@@ -51,7 +65,12 @@ function CategoriesInterface() {
                 </div>
             </div>
             <div className="two-container tr-background tr-format">
-                <MessagesView />
+                {
+                    View ?
+                    <MessagesView functionEdit={handleEditConst} />
+                    :
+                    <EditMsg functionDoneBack={handleDoneBackBtn} />
+                }
             </div>
         </div>
     )
