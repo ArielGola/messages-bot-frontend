@@ -1,18 +1,44 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
+import Axios from 'axios';
 
 import MessagesView from './MessagesView';
 import IndividualMsg from '../IndividualMsg';
 import CreateMsg from '../CreateMsg';
 import EditMsg from '../EditMsg';
 
+const GETMSGS_URL = 'http://localhost:4000/mba/message/all';
+
 function MessagesInterface() {
+
+    useEffect(() => {
+
+        async function getMessages() {
+            try {
+                const res = await Axios.get(GETMSGS_URL);
+                setMessages(res.data);
+                setLoader(false);
+            } catch (error) {
+                setError(true);
+            };
+        };
+
+        getMessages();
+
+        console.log(Messages);
+
+    }, []);
+    
 
     let navigate = useNavigate();
 
     const [Create, setCreate] = useState(false);
     const [Edit, setEdit] = useState(false);
     const [View, setView] = useState(true);
+
+    const [Messages, setMessages] = useState([]);
+    const [Error, setError] = useState(false);
+    const [Loader, setLoader] = useState(true);
 
     const handleEditConst = (newValue) => {
         setEdit(newValue);
@@ -60,12 +86,11 @@ function MessagesInterface() {
                         <h3 className='text-white'>Messages List</h3>
                     </div>
                     
-                    <IndividualMsg />
-                    <IndividualMsg />
-                    <IndividualMsg />
-                    <IndividualMsg />
-                    <IndividualMsg />
-                    <IndividualMsg />
+                    {
+                        Messages.map(msg => 
+                            <IndividualMsg msg={msg} />
+                        )
+                    }
 
                 </div>
                 <div className="down-bar">
