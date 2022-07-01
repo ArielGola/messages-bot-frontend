@@ -13,8 +13,18 @@ function HistoryInterface() {
             <div className="two-container tl-background tl-format">
                 <div className="two-container tl-background tl-format">
                     <div className="two-container tl-background tl-format">
-                        <div className="sup-bar">
-                            <button class="btn btn-primary ml-3"><i className="fas fa-bars fa-lg"></i></button>
+                        <div className="sup-bar dropdown">
+                            <button 
+                                className="btn btn-primary ml-3 dropdown-toggle" 
+                                id="dropdownMenuButton"
+                                data-toggle="dropdown"
+                                aria-haspopup="true" 
+                                aria-expanded="false"><i className="fas fa-bars fa-lg"></i>
+                            </button>
+                            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a className="dropdown-item" href='#'>Session Out</a>
+                                <a className="dropdown-item" href='#'>Delete Account</a>
+                            </div>
                         </div>
                         <div className="comp-content">
 
