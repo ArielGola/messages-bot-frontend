@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 import Axios from 'axios';
+//import Jwt from 'jsonwebtoken';
+//const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 const CREATEMSG_URL = 'http://localhost:4000/mba/message/create';
 
@@ -22,10 +25,16 @@ function CreateMsg(props) {
         const doneBack = props.functionDoneBack;
         doneBack(newValue);
     };
-
+    
     const createMsgFunction = async () => {
         try {
+            const token = document.cookie
+            console.log(token);
+
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
             const newMsg = {
+                numUser: decoded.id,
                 numSend: NumSend,
                 content: Text,
                 timeSend: Time,
@@ -41,11 +50,13 @@ function CreateMsg(props) {
                 }
             };
 
+            console.log(newMsg);
+
             await Axios.post(CREATEMSG_URL, newMsg);
             
             backToMsgs(true);
         } catch (error) {
-            console.log("mal");
+            console.log("mal", {error});
         };
     };
 
