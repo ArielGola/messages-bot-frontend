@@ -26,12 +26,18 @@ function CreateMsg(props) {
         doneBack(newValue);
     };
     
+    const getMsgs = () => {
+        const getMsgsF = props.getMsgs;
+        getMsgsF();
+    };
+
     const createMsgFunction = async () => {
         try {
-            const token = document.cookie
+            const token = document.cookie.split('=')[1];
             console.log(token);
+            //console.log(process.env.REACT_APP_JWT_SECRET);
 
-            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            const decoded = jwt.verify(token, /*process.env.REACT_APP_JWT_SECRET*/ "maNivela_30/9");
 
             const newMsg = {
                 numUser: decoded.id,
@@ -55,6 +61,9 @@ function CreateMsg(props) {
             await Axios.post(CREATEMSG_URL, newMsg);
             
             backToMsgs(true);
+
+            getMsgs();
+            
         } catch (error) {
             console.log("mal", {error});
         };

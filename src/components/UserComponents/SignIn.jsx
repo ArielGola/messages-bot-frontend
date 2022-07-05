@@ -27,7 +27,7 @@ function SignIn() {
 
             const res = await Axios.post(SIGNIN_URL, userData);
 
-            document.cookie = `token=${res.data.token}; expires=${now.toUTCString()}`;
+            document.cookie = `token=${res.data.token}; expires=${now.toUTCString}`;
 
             navigate('/messages');
             

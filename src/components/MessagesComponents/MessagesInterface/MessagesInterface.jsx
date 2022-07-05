@@ -13,16 +13,6 @@ function MessagesInterface() {
 
     useEffect(() => {
 
-        async function getMessages() {
-            try {
-                const res = await Axios.get(GETMSGS_URL);
-                setMessages(res.data);
-                setLoader(false);
-            } catch (error) {
-                setError(true);
-            };
-        };
-
         getMessages();
 
         console.log(Messages);
@@ -30,13 +20,23 @@ function MessagesInterface() {
     }, []);
     
 
+    async function getMessages() {
+        try {
+            const res = await Axios.get(GETMSGS_URL);
+            setMessages(res.data.messages);
+            setLoader(false);
+        } catch (error) {
+            setError(true);
+        };
+    };
+
     let navigate = useNavigate();
 
     const [Create, setCreate] = useState(false);
     const [Edit, setEdit] = useState(false);
     const [View, setView] = useState(true);
 
-    const [Messages, setMessages] = useState([]);
+    const [Messages, setMessages] = useState(false);
     const [Error, setError] = useState(false);
     const [Loader, setLoader] = useState(true);
 
@@ -87,9 +87,14 @@ function MessagesInterface() {
                     </div>
                     
                     {
-                        Messages.map(msg => 
-                            <IndividualMsg msg={msg} />
+                        Messages ?
+                        Messages.map((msg) => 
+                            <IndividualMsg msg={msg} key={msg._id} />
                         )
+                        :
+                        <div>
+                            Nothing
+                        </div>
                     }
 
                 </div>
@@ -117,7 +122,7 @@ function MessagesInterface() {
             <div className="two-container tr-background tr-format">
                 {
                     Create ?
-                    <CreateMsg functionDoneBack={handleDoneBackBtn} />
+                    <CreateMsg getMsgs={getMessages} functionDoneBack={handleDoneBackBtn} />
                     :
                     View ?
                     <MessagesView functionEdit={handleEditConst} />
