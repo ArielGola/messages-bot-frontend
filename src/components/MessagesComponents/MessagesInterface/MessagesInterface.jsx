@@ -40,6 +40,8 @@ function MessagesInterface() {
     const [Error, setError] = useState(false);
     const [Loader, setLoader] = useState(true);
 
+    const [SelectedMsg, setSelectedMsg] = useState(false);
+
     const handleEditConst = (newValue) => {
         setEdit(newValue);
         setCreate(!newValue);
@@ -50,6 +52,10 @@ function MessagesInterface() {
         setCreate(!newValue);
         setEdit(!newValue);
         setView(newValue);
+    };
+
+    const handleSelectedId = (newValue) => {
+        setSelectedMsg(newValue);
     };
 
     const newMsgBtn = () => {
@@ -89,7 +95,7 @@ function MessagesInterface() {
                     {
                         Messages ?
                         Messages.map((msg) => 
-                            <IndividualMsg msg={msg} key={msg._id} />
+                            <IndividualMsg msg={msg} key={msg._id} handleSelectedId={handleSelectedId} />
                         )
                         :
                         <div>
@@ -125,7 +131,10 @@ function MessagesInterface() {
                     <CreateMsg getMsgs={getMessages} functionDoneBack={handleDoneBackBtn} />
                     :
                     View ?
-                    <MessagesView functionEdit={handleEditConst} />
+                        SelectedMsg ?
+                        <MessagesView functionEdit={handleEditConst} selectedId={SelectedMsg} />
+                        :
+                        <div className="">Select a Message</div>
                     :
                     <EditMsg functionDoneBack={handleDoneBackBtn} />
                 }
