@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 
 const GETMSG_URL = 'http://localhost:4000/mba/message/';
+const DELMSG_URL = 'http://localhost:4000/mba/message/delete/';
 
 function MessagesView(props) {
 
@@ -29,9 +30,32 @@ function MessagesView(props) {
 
     const [Msg, setMsg] = useState(false);
 
+
     const handleIsEdit = (newValue) => {
         const changeIsEdit = props.functionEdit;
         changeIsEdit(newValue);
+    };
+
+    const getMsgs = () => {
+        const getMsgsF = props.getMsgs;
+        getMsgsF();
+    };
+
+
+    const deleteMsg = async () => {
+        try {
+
+            if (window.confirm('Are you sure of delete this message?')) {
+                await Axios.delete(`${DELMSG_URL}${Msg._id}`);
+
+                getMsgs();
+
+                setSelected(false);
+            };
+            
+        } catch (error) {
+            setError(true);
+        }
     };
 
     if (Selected) {
@@ -114,7 +138,7 @@ function MessagesView(props) {
                 </ul>
                 <div class="card-footer text-muted">
                     <button className='btn btn-primary' onClick={() => handleIsEdit(true)}>Edit</button>
-                    <button className='btn btn-secondary ml-3'>Delete</button>
+                    <button className='btn btn-secondary ml-3' onClick={() => deleteMsg()}>Delete</button>
                 </div>
             </div>   
         )
