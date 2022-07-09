@@ -29,7 +29,8 @@ function SignUp() {
 
             document.cookie = `token=${res.data.token}; expires=${now.toUTCString}`;
 
-            navigate('/messages');
+            //navigate('/messages');
+            window.location.href = "/messages";
             
         } catch (error) {
             GetError(true);

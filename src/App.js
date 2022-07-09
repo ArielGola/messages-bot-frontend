@@ -21,13 +21,18 @@ function App() {
             if (getToken()) {
                 setLogged(true);
                 initInterceptor();
-            };
+            } else {
+                console.log('to signin');
+                if (window.location.href !== "/signin") {
+                    //window.location.href = "/signin";
+                };
+            }
         };
 
         comprobeToken();
 
     }, []);
-    
+
     const [logged, setLogged] = useState(false);
 
     const handleLogged = (value) => {
@@ -37,21 +42,39 @@ function App() {
     return (
         <div className="App">
             <Router>
-                <Routes>
+                {
+                    logged ?
+                    <Routes>
 
-                    <Route path='/' exact element={<Navigate to='/messages' />} />
+                        <Route path='/' exact element={<Navigate to='/messages' />} />
 
-                    <Route path='/signin' exact element={<SignIn />} />
+                        <Route path='/signin' exact element={<Navigate to='/messages' />} />
 
-                    <Route path='/signup' exact element={<SignUp />} />
+                        <Route path='/signup' exact element={<Navigate to='/messages' />} />
 
-                    <Route path='/messages' exact element={<MessagesInterface />} />
+                        <Route path='/messages' exact element={<MessagesInterface />} />
 
-                    <Route path='/messages/categories' exact element={<CategoriesInterface />} />
+                        <Route path='/messages/categories' exact element={<CategoriesInterface />} />
 
-                    <Route path='/history' exact element={<HistoryInterface />} />
+                        <Route path='/history' exact element={<HistoryInterface />} />
 
-                </Routes>
+                    </Routes>
+                    :
+                    <Routes>
+                        <Route path='/messages' element={<Navigate to='/signin' />} />
+
+                        <Route path='/messages' exact element={<Navigate to='/signin' />} />
+
+                        <Route path='/messages/categories' exact element={<Navigate to='/signin' />} />
+
+                        <Route path='/history' exact element={<Navigate to='/signin' />} />
+
+                        <Route path='/signin' exact element={<SignIn />} />
+
+                        <Route path='/signup' exact element={<SignUp />} />
+                    </Routes>
+                }
+                
             </Router>
         </div>
     );
