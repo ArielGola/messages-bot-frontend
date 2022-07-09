@@ -132,7 +132,7 @@ function MessagesInterface() {
                     :
                     View ?
                         SelectedMsg ?
-                        <MessagesView functionEdit={handleEditConst} selectedId={SelectedMsg} />
+                        <MessagesView functionEdit={handleEditConst} selectedId={SelectedMsg} key={SelectedMsg} />
                         :
                         <div className="">Select a Message</div>
                     :
