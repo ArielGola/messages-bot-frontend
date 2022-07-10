@@ -140,7 +140,11 @@ function MessagesInterface() {
                         :
                         <div className="">Select a Message</div>
                     :
-                    <EditMsg functionDoneBack={handleDoneBackBtn} />
+                    <EditMsg 
+                        getMsgs={getMessages}
+                        functionDoneBack={handleDoneBackBtn}
+                        selectedId={SelectedMsg}
+                    />
                 }
             </div>
         </div>

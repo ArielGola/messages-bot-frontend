@@ -61,7 +61,7 @@ function App() {
                     </Routes>
                     :
                     <Routes>
-                        <Route path='/messages' element={<Navigate to='/signin' />} />
+                        <Route path='/' element={<Navigate to='/signin' />} />
 
                         <Route path='/messages' exact element={<Navigate to='/signin' />} />
 
