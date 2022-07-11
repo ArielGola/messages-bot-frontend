@@ -4,7 +4,7 @@ import {useNavigate, Link} from 'react-router-dom';
 
 const SIGNIN_URL = 'http://localhost:4000/mba/user/signin';
 
-function SignIn() {
+function SignIn(props) {
 
     let navigate = useNavigate();
 
@@ -29,12 +29,20 @@ function SignIn() {
 
             document.cookie = `token=${res.data.token}; expires=${now.toUTCString}`;
 
+            handleLogged();
+
             //navigate('/messages');
-            window.location.href = "/messages";
             
         } catch (error) {
             GetError(true);
-        };
+        } finally {
+            window.location.href = "/messages";
+        }
+    };
+
+    const handleLogged = () => {
+        const isLogged = props.handleLogged;
+        isLogged(true);
     };
 
     return (

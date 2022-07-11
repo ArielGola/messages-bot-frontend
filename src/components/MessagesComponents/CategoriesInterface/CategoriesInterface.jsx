@@ -54,8 +54,7 @@ function CategoriesInterface() {
                                 <button className='btn btn-primary disabled m-2'>Others</button>
                             </div>
 
-                            <IndividualMsg />
-                            <IndividualMsg />
+                            <div>fwfw</div>
                         
                     </div>
                     <div className="down-bar">

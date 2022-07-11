@@ -136,7 +136,8 @@ function MessagesInterface() {
                             getMsgs={getMessages}
                             functionEdit={handleEditConst} 
                             selectedId={SelectedMsg} 
-                            key={SelectedMsg} />
+                            key={SelectedMsg} 
+                        />
                         :
                         <div className="">Select a Message</div>
                     :

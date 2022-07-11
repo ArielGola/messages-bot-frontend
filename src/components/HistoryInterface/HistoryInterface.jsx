@@ -32,12 +32,7 @@ function HistoryInterface() {
                                 <h3 className='text-white'>Messages History</h3>
                             </div>
 
-                            <IndividualMsg />
-                            <IndividualMsg />
-                            <IndividualMsg />
-                            <IndividualMsg />
-                            <IndividualMsg />
-                            <IndividualMsg />
+                            <div>ewfwqf</div>
 
                         </div>
                         <div className="down-bar">

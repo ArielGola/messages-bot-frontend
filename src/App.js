@@ -21,11 +21,6 @@ function App() {
             if (getToken()) {
                 setLogged(true);
                 initInterceptor();
-            } else {
-                console.log('to signin');
-                if (window.location.href !== "/signin") {
-                    //window.location.href = "/signin";
-                };
             }
         };
 
@@ -46,7 +41,7 @@ function App() {
                     logged ?
                     <Routes>
 
-                        <Route path='/' exact element={<Navigate to='/messages' />} />
+                        <Route path='/' element={<Navigate to='/messages' />} />
 
                         <Route path='/signin' exact element={<Navigate to='/messages' />} />
 
@@ -61,7 +56,7 @@ function App() {
                     </Routes>
                     :
                     <Routes>
-                        <Route path='/' element={<Navigate to='/signin' />} />
+                        <Route path='/' exact element={<Navigate to='/signin' />} />
 
                         <Route path='/messages' exact element={<Navigate to='/signin' />} />
 
@@ -69,9 +64,9 @@ function App() {
 
                         <Route path='/history' exact element={<Navigate to='/signin' />} />
 
-                        <Route path='/signin' exact element={<SignIn />} />
+                        <Route path='/signin' handleLogged={handleLogged} exact element={<SignIn />} />
 
-                        <Route path='/signup' exact element={<SignUp />} />
+                        <Route path='/signup' handleLogged={handleLogged} exact element={<SignUp />} />
                     </Routes>
                 }
                 
