@@ -66,7 +66,7 @@ function MessagesView(props) {
                     <li class="list-group-item">To: {Msg.numSend}</li>
                     <li class="list-group-item">Date: {String(Msg.createdAt).split('T')[0]} At: {Msg.timeSend}</li>
                     <li class="list-group-item">Text: {Msg.content}</li>
-                    <li class="list-group-item">Category: {Msg.category}</li>
+                    <li class="list-group-item">Category: {Msg.categor}</li>
                     <li class="list-group-item">
                         Frequency
                         <div className='d-flex justify-content-center m-2'>

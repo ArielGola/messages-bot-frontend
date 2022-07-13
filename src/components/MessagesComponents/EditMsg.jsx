@@ -17,7 +17,7 @@ function EditMsg(props) {
                 setNumSend(msg.numSend);
                 setTime(msg.timeSend);
                 setText(msg.content);
-                setCategory(msg.category);
+                setCategory(msg.categor);
 
                 setMon(msg.frequency.Mon);
                 setTue(msg.frequency.Tue);
@@ -72,7 +72,7 @@ function EditMsg(props) {
                 numSend: NumSend,
                 content: Text,
                 timeSend: Time,
-                category: Category,
+                categor: Category,
                 frequency: {
                     Mon,
                     Tue,

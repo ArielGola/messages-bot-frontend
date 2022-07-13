@@ -44,7 +44,7 @@ function CreateMsg(props) {
                 numSend: NumSend,
                 content: Text,
                 timeSend: Time,
-                category: Category,
+                categor: Category,
                 frequency: {
                     Mon,
                     Tue,
@@ -103,7 +103,7 @@ function CreateMsg(props) {
                     <select 
                         class="form-control" 
                         id="exampleFormControlSelect1" 
-                        onChange={(e) => setCategory(e.target.value)}
+                        onChange={(e) => setCategory(String(e.target.value))}
                     >
                         <option>Family</option>
                         <option>Friends</option>
