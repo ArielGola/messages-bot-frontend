@@ -10,17 +10,33 @@ const GETMSGS_URL = 'http://localhost:4000/mba/message/all';
 
 function CategoriesInterface() {
 
-    //useEffect(() => {
+    useEffect(() => {
 
-        //getMessages();
+        async function getMessages() {
+            try {
+    
+                const res = await Axios.get(GETMSGS_URL);
+                const msgs = res.data.messages;
+    
+                setMessages(msgs);
+    
+            } catch (error) {
+                console.log("no va");
+                setError(true);
+            };
+        };
 
-    //}, []);
+        getMessages();
+
+    }, []);
     
     let category;
 
     let navigate = useNavigate();
     
     const [Messages, setMessages] = useState(false);
+
+    const [MsgsFilter, setMsgsFilter] = useState(false);
 
     //const [Category, setCategory] = useState("");
 
@@ -30,10 +46,12 @@ function CategoriesInterface() {
     const [Edit, setEdit] = useState(false);
     const [View, setView] = useState(true);
 
+
     const handleEditConst = (newValue) => {
         setEdit(newValue);
         setView(!newValue);
     };
+
 
     const handleDoneBackBtn = (newValue) => {
         setEdit(!newValue);
@@ -46,29 +64,17 @@ function CategoriesInterface() {
             //setCategory(value);
             category = value;
         } finally {
-            getMessages();
+            filterMsgs();
         };
     };
 
 
-    async function getMessages() {
+    async function filterMsgs() {
         try {
 
-            setMessages(false);
+            const filtered = Messages.filter(msg => msg.categor === category);
 
-            const res = await Axios.get(GETMSGS_URL);
-            const msgs = res.data.messages;
-
-            //const filt = Object.entries(msgs);
-            //console.log(filt);
-
-            //console.log(Category);
-
-            const filtered = msgs.filter(msg => msg.categor === category);
-
-            //console.log(filtered);
-
-            setMessages(filtered);
+            setMsgsFilter(filtered);
             setLoader(false);
 
         } catch (error) {
@@ -129,8 +135,8 @@ function CategoriesInterface() {
                             </div>
 
                             {
-                                Messages ?
-                                Messages.map((msg) => 
+                                MsgsFilter ?
+                                MsgsFilter.map((msg) => 
                                     <IndividualMsg msg={msg} key={msg._id} />
                                 )
                                 :
