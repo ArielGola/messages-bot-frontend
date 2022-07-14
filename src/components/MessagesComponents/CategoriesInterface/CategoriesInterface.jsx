@@ -6,6 +6,8 @@ import IndividualMsg from '../IndividualMsg';
 import MessagesView from '../MessagesInterface/MessagesView';
 import EditMsg from '../EditMsg';
 
+import 'datejs';
+
 const GETMSGS_URL = 'http://localhost:4000/mba/message/all';
 
 function CategoriesInterface() {
@@ -30,6 +32,9 @@ function CategoriesInterface() {
 
     }, []);
     
+
+    let Interval;
+
     let category;
 
     let navigate = useNavigate();
@@ -54,15 +59,37 @@ function CategoriesInterface() {
         setView(!newValue);
     };
 
-
     const handleDoneBackBtn = (newValue) => {
         setEdit(!newValue);
         setView(newValue);
     };
 
-
     const handleSelectedId = (newValue) => {
         setSelectedMsg(newValue);
+    };
+
+
+    const timeIteration = () => {
+        Interval = setInterval(() => {
+
+            let today = new Date().toLocaleDateString('en-US', {weekday: 'long'}).slice(0,3);
+
+            let timeNow = `${new Date().getHours()}:${new Date().getMinutes()}`;
+
+            matchDayTime(today, timeNow);
+
+        }, 1000*60);
+    };
+
+
+    function matchDayTime(today, timeNow) {
+        let dayFilter = Messages.filter(msg => msg.frequency.key(today) === today);
+
+        dayFilter.filter(msg => {
+            if (msg.timeSend === timeNow) {
+                //sendMessage();
+            };
+        });
     };
 
 
