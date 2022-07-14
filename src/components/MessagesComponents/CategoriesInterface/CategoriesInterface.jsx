@@ -38,6 +38,8 @@ function CategoriesInterface() {
 
     const [MsgsFilter, setMsgsFilter] = useState(false);
 
+    const [SelectedMsg, setSelectedMsg] = useState(false);
+
     //const [Category, setCategory] = useState("");
 
     const [Loader, setLoader] = useState(true);
@@ -56,6 +58,11 @@ function CategoriesInterface() {
     const handleDoneBackBtn = (newValue) => {
         setEdit(!newValue);
         setView(newValue);
+    };
+
+
+    const handleSelectedId = (newValue) => {
+        setSelectedMsg(newValue);
     };
 
 
@@ -137,7 +144,7 @@ function CategoriesInterface() {
                             {
                                 MsgsFilter ?
                                 MsgsFilter.map((msg) => 
-                                    <IndividualMsg msg={msg} key={msg._id} />
+                                    <IndividualMsg msg={msg} key={msg._id} handleSelectedId={handleSelectedId} />
                                 )
                                 :
                                 <div>
@@ -165,9 +172,21 @@ function CategoriesInterface() {
             <div className="two-container tr-background tr-format">
                 {
                     View ?
-                    <MessagesView functionEdit={handleEditConst} />
+                        SelectedMsg ?
+                        <MessagesView 
+                            getMsgs={filterMsgs}
+                            functionEdit={handleEditConst} 
+                            selectedId={SelectedMsg} 
+                            key={SelectedMsg} 
+                        />
+                        :
+                        <div className="">Select a Message</div>
                     :
-                    <EditMsg functionDoneBack={handleDoneBackBtn} />
+                    <EditMsg 
+                        getMsgs={filterMsgs}
+                        functionDoneBack={handleDoneBackBtn}
+                        selectedId={SelectedMsg}
+                    />
                 }
             </div>
         </div>
