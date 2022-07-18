@@ -60,9 +60,10 @@ function EditMsg(props) {
         doneBack(newValue);
     };
 
-    const getMsgs = () => {
-        const getMsgsF = props.getMsgs;
-        getMsgsF();
+    const refreshFunction = () => {
+        console.log(props.refresh);
+        const refreshF = props.refresh;
+        refreshF();
     };
 
     const editMsgFunction = async () => {
@@ -74,24 +75,24 @@ function EditMsg(props) {
                 timeSend: Time,
                 categor: Category,
                 frequency: {
+                    Sun,
                     Mon,
                     Tue,
                     Wed,
                     Thu,
                     Fri,
-                    Sat,
-                    Sun
+                    Sat
                 }
             };
 
             await Axios.put(`${EDITMSG_URL}${props.selectedId}`, newMsg);
             
             backToMsgs(true);
-            
-            getMsgs();
 
         } catch (error) {
             setError(true);  
+        } finally {
+            refreshFunction();
         };
     };
 

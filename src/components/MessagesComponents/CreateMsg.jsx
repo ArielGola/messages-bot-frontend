@@ -26,9 +26,9 @@ function CreateMsg(props) {
         doneBack(newValue);
     };
     
-    const getMsgs = () => {
-        const getMsgsF = props.getMsgs;
-        getMsgsF();
+    const refreshFunction = () => {
+        const refreshF = props.refresh;
+        refreshF();
     };
 
     const createMsgFunction = async () => {
@@ -46,13 +46,13 @@ function CreateMsg(props) {
                 timeSend: Time,
                 categor: Category,
                 frequency: {
+                    Sun,
                     Mon,
                     Tue,
                     Wed,
                     Thu,
                     Fri,
-                    Sat,
-                    Sun
+                    Sat
                 }
             };
 
@@ -61,11 +61,11 @@ function CreateMsg(props) {
             await Axios.post(CREATEMSG_URL, newMsg);
             
             backToMsgs(true);
-
-            getMsgs();
             
         } catch (error) {
             console.log("mal", {error});
+        } finally {
+            refreshFunction();
         };
     };
 

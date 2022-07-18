@@ -28,10 +28,18 @@ function App() {
 
     }, []);
 
+    let CompKey;
+
     const [logged, setLogged] = useState(false);
 
     const handleLogged = (value) => {
         setLogged(value);
+    };
+
+    const refreshFunction = () =>  {
+        console.log("Change key");
+        CompKey = Math.floor(Math.random()*1000);
+        console.log(CompKey);
     };
 
     return (
@@ -47,9 +55,19 @@ function App() {
 
                         <Route path='/signup' exact element={<Navigate to='/messages' />} />
 
-                        <Route path='/messages' exact element={<MessagesInterface />} />
+                        <Route path='/messages' exact element={
+                            <MessagesInterface 
+                                key={CompKey}
+                                refreshF={refreshFunction} 
+                            />
+                        } />
 
-                        <Route path='/messages/categories' exact element={<CategoriesInterface />} />
+                        <Route path='/messages/categories' exact element={
+                            <CategoriesInterface 
+                                refreshF={refreshFunction} 
+                                key={CompKey} 
+                            />
+                        } />
 
                         <Route path='/history' exact element={<HistoryInterface />} />
 

@@ -87,9 +87,14 @@ function CategoriesInterface() {
 
         dayFilter.filter(msg => {
             if (msg.timeSend === timeNow) {
-                //sendMessage();
+                sendMessage();
             };
         });
+    };
+
+
+    function sendMessage() {
+        console.log("Sended a grat message!!!");
     };
 
 

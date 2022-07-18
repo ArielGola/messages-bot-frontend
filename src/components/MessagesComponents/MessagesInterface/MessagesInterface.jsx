@@ -9,26 +9,59 @@ import EditMsg from '../EditMsg';
 
 const GETMSGS_URL = 'http://localhost:4000/mba/message/all';
 
-function MessagesInterface() {
+function MessagesInterface(props) {
 
     useEffect(() => {
+        try {
 
-        getMessages();
+            clearInterval(Interval);
+            getMessages();
 
-        console.log(Messages);
-
+        } finally {
+            //timeIteration();
+        };
     }, []);
     
 
     async function getMessages() {
         try {
+
+            clearInterval(Interval);
+            setMessages(false);
+            HandleMsgs = [];
             const res = await Axios.get(GETMSGS_URL);
-            setMessages(res.data.messages);
+            HandleMsgs = res.data.messages;
+            setMessages(HandleMsgs);
+            console.log(HandleMsgs);
             setLoader(false);
+
         } catch (error) {
+            console.log("no");
             setError(true);
-        };
+        } finally {
+            Interval = setInterval(async () => {
+
+                //console.log("Vuelta");
+        
+                //let today = new Date().toLocaleDateString('en-US', {weekday: 'long'}).slice(0,3);
+                let today = new Date().getDay();
+        
+                //let timeNow = `${new Date().getHours()}:${new Date().getMinutes()}`;
+                let timeNow = new Date().toLocaleTimeString([], {
+                    timeStyle: 'short'
+                });
+        
+                await matchDayTime(today, timeNow);
+        
+            }, 1000*30);
+        }
     };
+
+    let CompKey;
+
+    let HandleMsgs;
+
+    let Interval;
 
     let navigate = useNavigate();
 
@@ -41,6 +74,12 @@ function MessagesInterface() {
     const [Loader, setLoader] = useState(true);
 
     const [SelectedMsg, setSelectedMsg] = useState(false);
+
+
+    const refreshComp = () => {
+        getMessages();
+        console.log("MessageInterface well");
+    };
 
     const handleEditConst = (newValue) => {
         setEdit(newValue);
@@ -70,6 +109,53 @@ function MessagesInterface() {
         };
     };
 
+    /*
+    const timeIteration = () => {
+        clearInterval(Interval);
+
+        Interval = setInterval(async () => {
+
+            //console.log("Vuelta");
+
+            //let today = new Date().toLocaleDateString('en-US', {weekday: 'long'}).slice(0,3);
+            let today = new Date().getDay();
+
+            //let timeNow = `${new Date().getHours()}:${new Date().getMinutes()}`;
+            let timeNow = new Date().toLocaleTimeString([], {
+                timeStyle: 'short'
+            });
+
+            await matchDayTime(today, timeNow);
+
+        }, 1000*30);
+    };
+    */
+
+
+    function matchDayTime(today, timeNow) {
+        let dayFilter = [];
+
+        HandleMsgs.map(msg => {
+            const arr = Object.entries(msg.frequency);
+            if (arr[today][1]) { dayFilter.push(msg); };
+        });
+
+        //console.log(dayFilter);
+
+        dayFilter.map(msgF => {
+            console.log(msgF.timeSend, timeNow);
+            if (msgF.timeSend === timeNow) {
+                sendMessage();
+            };
+        });
+    };
+
+
+    function sendMessage() {
+        console.log("Sended a grat message!!!");
+    };
+
+
     return (
         <div className="one-container">
             <div className="two-container tl-background tl-format">
@@ -86,7 +172,7 @@ function MessagesInterface() {
                         <a className="dropdown-item" href='#'>Delete Account</a>
                     </div>
                 </div>
-                <div className="comp-content">
+                <div className="comp-content" key={CompKey}>
 
                     <div className="mt-4 align-title"> 
                         <h3 className='text-white'>Messages List</h3>
@@ -128,12 +214,12 @@ function MessagesInterface() {
             <div className="two-container tr-background tr-format">
                 {
                     Create ?
-                    <CreateMsg getMsgs={getMessages} functionDoneBack={handleDoneBackBtn} />
+                    <CreateMsg refresh={refreshComp} functionDoneBack={handleDoneBackBtn} />
                     :
                     View ?
                         SelectedMsg ?
                         <MessagesView 
-                            getMsgs={getMessages}
+                            refresh={refreshComp}
                             functionEdit={handleEditConst} 
                             selectedId={SelectedMsg} 
                             key={SelectedMsg} 
@@ -142,7 +228,7 @@ function MessagesInterface() {
                         <div className="">Select a Message</div>
                     :
                     <EditMsg 
-                        getMsgs={getMessages}
+                        refresh={refreshComp}
                         functionDoneBack={handleDoneBackBtn}
                         selectedId={SelectedMsg}
                     />

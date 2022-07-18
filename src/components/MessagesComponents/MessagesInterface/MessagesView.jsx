@@ -36,9 +36,9 @@ function MessagesView(props) {
         changeIsEdit(newValue);
     };
 
-    const getMsgs = () => {
-        const getMsgsF = props.getMsgs;
-        getMsgsF();
+    const refreshFunction = () => {
+        const refreshF = props.refresh;
+        refreshF();
     };
 
 
@@ -48,7 +48,7 @@ function MessagesView(props) {
             if (window.confirm('Are you sure of delete this message?')) {
                 await Axios.delete(`${DELMSG_URL}${Msg._id}`);
 
-                getMsgs();
+                refreshFunction();
 
                 setSelected(false);
             };
