@@ -187,13 +187,13 @@ function CategoriesInterface() {
                     </div>
                     <div className="down-bar">
                         <button 
-                            class="btn btn-primary ml-3"
+                            className="btn btn-primary ml-3"
                             onClick={() => navigate('/messages')}
                         >
                             Messages
                         </button>
                         <button 
-                            class="btn btn-primary ml-3"
+                            className="btn btn-primary ml-3"
                             onClick={() => navigate('/history')}
                         >
                             Show History

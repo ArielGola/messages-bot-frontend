@@ -48,31 +48,31 @@ function SignUp(props) {
 
     return (
         <div className="one-container tl-background">
-            <div class="card bg-light login-card-width">
-                <div class="card-header">Sign Up</div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1" class="form-label mt-3">Phone number</label>
+            <div className="card bg-light login-card-width">
+                <div className="card-header">Sign Up</div>
+                <div className="card-body">
+                    <div className="form-group">
+                        <label for="exampleInputEmail1" className="form-label mt-3">Phone number</label>
                         <input 
                             type="text" 
-                            class="form-control" 
+                            className="form-control" 
                             placeholder="Enter your phone number"
                             onChange={(e) => setPhNumber(e.target.value)} 
                         />
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your phone number with anyone else.</small>
+                        <small id="emailHelp" className="form-text text-muted">We'll never share your phone number with anyone else.</small>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1" class="form-label mt-3">Password</label>
+                    <div className="form-group">
+                        <label for="exampleInputPassword1" className="form-label mt-3">Password</label>
                         <input 
                             type="password" 
-                            class="form-control" 
+                            className="form-control" 
                             id="exampleInputPassword1" 
                             placeholder="Password"
                             onChange={(e) => setPassword(e.target.value)}  
                         />
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" onClick={() => onSubmit()}>Sign Up...</button>
+                <button type="submit" className="btn btn-primary" onClick={() => onSubmit()}>Sign Up...</button>
             </div>    
         </div>
     )

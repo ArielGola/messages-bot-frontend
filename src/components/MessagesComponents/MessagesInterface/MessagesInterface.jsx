@@ -9,7 +9,7 @@ import EditMsg from '../EditMsg';
 
 const GETMSGS_URL = 'http://localhost:4000/mba/message/all';
 
-function MessagesInterface(props) {
+function MessagesInterface() {
 
     useEffect(() => {
         try {
@@ -17,11 +17,9 @@ function MessagesInterface(props) {
             clearInterval(Interval);
             getMessages();
 
-            //let a = "09:44";
-            //console.log(a.slice(1,5));
-
-        } finally {
-            //timeIteration();
+        } catch (error) {
+            console.log("no");
+            setError(true);
         };
     }, []);
     
@@ -39,28 +37,12 @@ function MessagesInterface(props) {
             setLoader(false);
 
         } catch (error) {
-            console.log("no");
             setError(true);
         } finally {
-            Interval = setInterval(async () => {
-
-                //console.log("Vuelta");
-        
-                //let today = new Date().toLocaleDateString('en-US', {weekday: 'long'}).slice(0,3);
-                let today = new Date().getDay();
-        
-                //let timeNow = `${new Date().getHours()}:${new Date().getMinutes()}`;
-                let timeNow = new Date().toLocaleTimeString([], {
-                    timeStyle: 'short'
-                });
-        
-                matchDayTime(today, timeNow);
-        
-            }, 1000*30);
-        }
+            timeIteration();
+        };
     };
 
-    let CompKey;
 
     let HandleMsgs;
 
@@ -112,27 +94,23 @@ function MessagesInterface(props) {
         };
     };
 
-    /*
-    const timeIteration = () => {
-        clearInterval(Interval);
-
-        Interval = setInterval(async () => {
-
-            //console.log("Vuelta");
-
+    
+    function timeIteration() {
+        Interval = setInterval(() => {
+        
             //let today = new Date().toLocaleDateString('en-US', {weekday: 'long'}).slice(0,3);
             let today = new Date().getDay();
-
+    
             //let timeNow = `${new Date().getHours()}:${new Date().getMinutes()}`;
             let timeNow = new Date().toLocaleTimeString([], {
                 timeStyle: 'short'
             });
-
-            await matchDayTime(today, timeNow);
-
+    
+            matchDayTime(today, timeNow);
+    
         }, 1000*30);
     };
-    */
+    
 
 
     function matchDayTime(today, timeNow) {
@@ -179,7 +157,7 @@ function MessagesInterface(props) {
                         <a className="dropdown-item" href='#'>Delete Account</a>
                     </div>
                 </div>
-                <div className="comp-content" key={CompKey}>
+                <div className="comp-content">
 
                     <div className="mt-4 align-title"> 
                         <h3 className='text-white'>Messages List</h3>

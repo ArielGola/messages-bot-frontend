@@ -60,83 +60,83 @@ function MessagesView(props) {
 
     if (Selected) {
         return (
-            <div class="card border-primary desc-w-container">
-                <h3 class="card-header bg-primary text-white">Message Description</h3>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">To: {Msg.numSend}</li>
-                    <li class="list-group-item">Date: {String(Msg.createdAt).split('T')[0]} At: {Msg.timeSend}</li>
-                    <li class="list-group-item">Text: {Msg.content}</li>
-                    <li class="list-group-item">Category: {Msg.categor}</li>
-                    <li class="list-group-item">
+            <div className="card border-primary desc-w-container">
+                <h3 className="card-header bg-primary text-white">Message Description</h3>
+                <ul className="list-group list-group-flush">
+                    <li className="list-group-item">To: {Msg.numSend}</li>
+                    <li className="list-group-item">Date: {String(Msg.createdAt).split('T')[0]} At: {Msg.timeSend}</li>
+                    <li className="list-group-item">Text: {Msg.content}</li>
+                    <li className="list-group-item">Category: {Msg.categor}</li>
+                    <li className="list-group-item">
                         Frequency
                         <div className='d-flex justify-content-center m-2'>
-                            <div class="form-check form-check-inline mr-3">
+                            <div className="form-check form-check-inline mr-3">
                                 <input 
-                                    class="form-check-input" 
+                                    className="form-check-input" 
                                     type="checkbox" 
                                     id="" 
                                     defaultChecked={Msg.frequency.Mon}
                                 />
-                                <label class="form-check-label" for="">Mon</label>
+                                <label className="form-check-label" for="">Mon</label>
                             </div>
-                            <div class="form-check form-check-inline mr-3">
+                            <div className="form-check form-check-inline mr-3">
                                 <input 
-                                    class="form-check-input" 
+                                    className="form-check-input" 
                                     type="checkbox" 
                                     id="" 
                                     defaultChecked={Msg.frequency.Tue}
                                 />
-                                <label class="form-check-label" for="">Tue</label>
+                                <label className="form-check-label" for="">Tue</label>
                             </div>
-                            <div class="form-check form-check-inline mr-3">
+                            <div className="form-check form-check-inline mr-3">
                                 <input 
-                                    class="form-check-input" 
+                                    className="form-check-input" 
                                     type="checkbox" 
                                     id="" 
                                     defaultChecked={Msg.frequency.Wed}
                                 />
-                                <label class="form-check-label" for="">Wed</label>
+                                <label className="form-check-label" for="">Wed</label>
                             </div>
-                            <div class="form-check form-check-inline mr-3">
+                            <div className="form-check form-check-inline mr-3">
                                 <input 
-                                    class="form-check-input" 
+                                    className="form-check-input" 
                                     type="checkbox" 
                                     id="" 
                                     defaultChecked={Msg.frequency.Thu}
                                 />
-                                <label class="form-check-label" for="">Thu</label>
+                                <label className="form-check-label" for="">Thu</label>
                             </div>
-                            <div class="form-check form-check-inline mr-3">
+                            <div className="form-check form-check-inline mr-3">
                                 <input 
-                                    class="form-check-input" 
+                                    className="form-check-input" 
                                     type="checkbox" 
                                     id="" 
                                     defaultChecked={Msg.frequency.Fri}
                                 />
-                                <label class="form-check-label" for="">Fri</label>
+                                <label className="form-check-label" for="">Fri</label>
                             </div>
-                            <div class="form-check form-check-inline mr-3">
+                            <div className="form-check form-check-inline mr-3">
                                 <input 
-                                    class="form-check-input" 
+                                    className="form-check-input" 
                                     type="checkbox" 
                                     id="" 
                                     defaultChecked={Msg.frequency.Sat}
                                 />
-                                <label class="form-check-label" for="">Sat</label>
+                                <label className="form-check-label" for="">Sat</label>
                             </div>
-                            <div class="form-check form-check-inline mr-3">
+                            <div className="form-check form-check-inline mr-3">
                                 <input 
-                                    class="form-check-input" 
+                                    className="form-check-input" 
                                     type="checkbox" 
                                     id="" 
                                     defaultChecked={Msg.frequency.Sun}
                                 />
-                                <label class="form-check-label" for="">Sun</label>
+                                <label className="form-check-label" for="">Sun</label>
                             </div>
                         </div>
                     </li>
                 </ul>
-                <div class="card-footer text-muted">
+                <div className="card-footer text-muted">
                     <button className='btn btn-primary' onClick={() => handleIsEdit(true)}>Edit</button>
                     <button className='btn btn-secondary ml-3' onClick={() => deleteMsg()}>Delete</button>
                 </div>
