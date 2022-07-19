@@ -17,6 +17,9 @@ function MessagesInterface(props) {
             clearInterval(Interval);
             getMessages();
 
+            //let a = "09:44";
+            //console.log(a.slice(1,5));
+
         } finally {
             //timeIteration();
         };
@@ -51,7 +54,7 @@ function MessagesInterface(props) {
                     timeStyle: 'short'
                 });
         
-                await matchDayTime(today, timeNow);
+                matchDayTime(today, timeNow);
         
             }, 1000*30);
         }
@@ -143,10 +146,14 @@ function MessagesInterface(props) {
         //console.log(dayFilter);
 
         dayFilter.map(msgF => {
-            console.log(msgF.timeSend, timeNow);
-            if (msgF.timeSend === timeNow) {
+            let time = String(msgF.timeSend);
+            if (time.startsWith("0")) {
+                time = time.slice(1,5);
+            };
+            if (time === timeNow) {
                 sendMessage();
             };
+            console.log(time, timeNow);
         });
     };
 
