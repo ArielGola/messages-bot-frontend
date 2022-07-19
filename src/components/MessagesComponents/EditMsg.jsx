@@ -61,7 +61,6 @@ function EditMsg(props) {
     };
 
     const refreshFunction = () => {
-        console.log(props.refresh);
         const refreshF = props.refresh;
         refreshF();
     };

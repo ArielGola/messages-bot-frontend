@@ -14,7 +14,7 @@ function MessagesInterface() {
     useEffect(() => {
         try {
 
-            clearInterval(Interval);
+            //clearInterval(Interval);
             getMessages();
 
         } catch (error) {
@@ -27,13 +27,17 @@ function MessagesInterface() {
     async function getMessages() {
         try {
 
-            clearInterval(Interval);
+            //clearInterval(Interval);
+
+            clearInterval(window.timer);
+
             setMessages(false);
             HandleMsgs = [];
+
             const res = await Axios.get(GETMSGS_URL);
+
             HandleMsgs = res.data.messages;
             setMessages(HandleMsgs);
-            console.log(HandleMsgs);
             setLoader(false);
 
         } catch (error) {
@@ -46,7 +50,7 @@ function MessagesInterface() {
 
     let HandleMsgs;
 
-    let Interval;
+    //let Interval;
 
     let navigate = useNavigate();
 
@@ -63,7 +67,6 @@ function MessagesInterface() {
 
     const refreshComp = () => {
         getMessages();
-        console.log("MessageInterface well");
     };
 
     const handleEditConst = (newValue) => {
@@ -96,7 +99,8 @@ function MessagesInterface() {
 
     
     function timeIteration() {
-        Interval = setInterval(() => {
+        //Interval = setInterval(() => {
+        window.timer = setInterval(() => {
         
             //let today = new Date().toLocaleDateString('en-US', {weekday: 'long'}).slice(0,3);
             let today = new Date().getDay();
