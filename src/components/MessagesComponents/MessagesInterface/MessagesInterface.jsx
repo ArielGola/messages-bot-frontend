@@ -6,6 +6,7 @@ import MessagesView from './MessagesView';
 import IndividualMsg from '../IndividualMsg';
 import CreateMsg from '../CreateMsg';
 import EditMsg from '../EditMsg';
+import LoaderComponent from '../../Others/Loader';
 
 const GETMSGS_URL = 'http://localhost:4000/mba/message/all';
 
@@ -173,8 +174,8 @@ function MessagesInterface() {
                             <IndividualMsg msg={msg} key={msg._id} handleSelectedId={handleSelectedId} />
                         )
                         :
-                        <div>
-                            Nothing
+                        <div className='loader-div'>
+                            <LoaderComponent />
                         </div>
                     }
 

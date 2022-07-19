@@ -179,8 +179,8 @@ function CategoriesInterface() {
                                     <IndividualMsg msg={msg} key={msg._id} handleSelectedId={handleSelectedId} />
                                 )
                                 :
-                                <div>
-                                    Nothing
+                                <div className='loader-div'>
+                                    Select a category
                                 </div>
                             }
                         
