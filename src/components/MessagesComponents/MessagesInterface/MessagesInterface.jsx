@@ -8,6 +8,8 @@ import CreateMsg from '../CreateMsg';
 import EditMsg from '../EditMsg';
 import LoaderComponent from '../../Others/Loader';
 
+import { timeIteration } from '../../../helpers/timer';
+
 const GETMSGS_URL = 'http://localhost:4000/mba/message/all';
 
 function MessagesInterface() {
@@ -44,7 +46,7 @@ function MessagesInterface() {
         } catch (error) {
             setError(true);
         } finally {
-            timeIteration();
+            timeIteration(HandleMsgs);
         };
     };
 
@@ -96,53 +98,6 @@ function MessagesInterface() {
             setEdit(View);
             setView(!View);
         };
-    };
-
-    
-    function timeIteration() {
-        //Interval = setInterval(() => {
-        window.timer = setInterval(() => {
-        
-            //let today = new Date().toLocaleDateString('en-US', {weekday: 'long'}).slice(0,3);
-            let today = new Date().getDay();
-    
-            //let timeNow = `${new Date().getHours()}:${new Date().getMinutes()}`;
-            let timeNow = new Date().toLocaleTimeString([], {
-                timeStyle: 'short'
-            });
-    
-            matchDayTime(today, timeNow);
-    
-        }, 1000*30);
-    };
-    
-
-
-    function matchDayTime(today, timeNow) {
-        let dayFilter = [];
-
-        HandleMsgs.map(msg => {
-            const arr = Object.entries(msg.frequency);
-            if (arr[today][1]) { dayFilter.push(msg); };
-        });
-
-        //console.log(dayFilter);
-
-        dayFilter.map(msgF => {
-            let time = String(msgF.timeSend);
-            if (time.startsWith("0")) {
-                time = time.slice(1,5);
-            };
-            if (time === timeNow) {
-                sendMessage();
-            };
-            console.log(time, timeNow);
-        });
-    };
-
-
-    function sendMessage() {
-        console.log("Sended a grat message!!!");
     };
 
 

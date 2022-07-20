@@ -1,12 +1,49 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
+import Axios from 'axios';
 
 import IndividualMsg from '../MessagesComponents/IndividualMsg';
 import OneHistoryMsg from './OneHistoryMsg';
+import LoaderComponent from '../Others/Loader';
+
+const HISTORY_MSGS_URL = "http://localhost:4000/mba/history/";
 
 function HistoryInterface() {
 
+    useEffect(() => {
+      
+        getMessages();
+
+    }, []);
+
+
+    const [HisMsgs, setHisMsgs] = useState(false);
+
+    const [SelectedMsg, setSelectedMsg] = useState(false);
+
+    const [Error, setError] = useState(false);
+    const [Loader, setLoader] = useState(true);
+
     let navigate = useNavigate();
+
+
+    async function getMessages() {
+        try {
+            
+            const res = await Axios.get(HISTORY_MSGS_URL);
+
+            setHisMsgs(res.data.history);
+            setLoader(false);
+
+        } catch (error) {
+            setError(true);  
+        };
+    };
+
+    const handleSelectedId = (newValue) => {
+        setSelectedMsg(newValue);
+    };
+
 
     return (
         <div className="one-container">
@@ -32,7 +69,16 @@ function HistoryInterface() {
                                 <h3 className='text-white'>Messages History</h3>
                             </div>
 
-                            <div>ewfwqf</div>
+                            {
+                                HisMsgs ?
+                                HisMsgs.map(msg => 
+                                    <IndividualMsg msg={msg} key={msg._id} handleSelectedId={handleSelectedId} />
+                                )
+                                :
+                                <div className='loader-div'>
+                                    <LoaderComponent />
+                                </div>
+                            }
 
                         </div>
                         <div className="down-bar">
@@ -48,7 +94,15 @@ function HistoryInterface() {
                 </div>
             </div>
             <div className="two-container tr-background tr-format">
-                <OneHistoryMsg />
+                {
+                    SelectedMsg ?
+                    <OneHistoryMsg 
+                        selectedId={SelectedMsg} 
+                        key={SelectedMsg} 
+                    />
+                    :
+                    <div className="">Select a Message</div>
+                }
             </div>
         </div>
     )
