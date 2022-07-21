@@ -30,12 +30,6 @@ function OneHistoryMsg(props) {
     const [Error, setError] = useState(false);
 
 
-    const handleSelectedId = (newValue) => {
-        const handleSelected = props.handleSelectedId;
-        handleSelected(newValue);
-    };
-
-
     return (
         <div className="card border-primary desc-w-container">
             <h3 className="card-header bg-primary text-white">Message Description</h3>
