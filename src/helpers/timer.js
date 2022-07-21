@@ -18,7 +18,7 @@ export function timeIteration(HandleMsgs) {
 
         matchDayTime(today, timeNow, HandleMsgs);
 
-    }, 1000*30);
+    }, 1000*59.99);
 };
 
 
