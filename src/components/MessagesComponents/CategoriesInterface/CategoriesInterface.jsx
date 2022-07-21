@@ -96,7 +96,12 @@ function CategoriesInterface() {
 
             const filtered = Messages.filter(msg => msg.categor === category);
 
-            setMsgsFilter(filtered);
+            if (filtered.length > 0) {
+                setMsgsFilter(filtered);
+            } else {
+                setMsgsFilter(false);
+            };
+
             setLoader(false);
 
         } catch (error) {
@@ -163,7 +168,7 @@ function CategoriesInterface() {
                                 )
                                 :
                                 <div className='loader-div'>
-                                    Select a category
+                                    Select a category with entries.
                                 </div>
                             }
                         

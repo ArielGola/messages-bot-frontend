@@ -74,7 +74,7 @@ function MessagesView(props) {
                                 <input 
                                     className="form-check-input" 
                                     type="checkbox" 
-                                    id="" 
+                                    disabled="on" 
                                     defaultChecked={Msg.frequency.Mon}
                                 />
                                 <label className="form-check-label" for="">Mon</label>
@@ -83,7 +83,7 @@ function MessagesView(props) {
                                 <input 
                                     className="form-check-input" 
                                     type="checkbox" 
-                                    id="" 
+                                    disabled="on" 
                                     defaultChecked={Msg.frequency.Tue}
                                 />
                                 <label className="form-check-label" for="">Tue</label>
@@ -92,7 +92,7 @@ function MessagesView(props) {
                                 <input 
                                     className="form-check-input" 
                                     type="checkbox" 
-                                    id="" 
+                                    disabled="on" 
                                     defaultChecked={Msg.frequency.Wed}
                                 />
                                 <label className="form-check-label" for="">Wed</label>
@@ -101,7 +101,7 @@ function MessagesView(props) {
                                 <input 
                                     className="form-check-input" 
                                     type="checkbox" 
-                                    id="" 
+                                    disabled="on" 
                                     defaultChecked={Msg.frequency.Thu}
                                 />
                                 <label className="form-check-label" for="">Thu</label>
@@ -110,7 +110,7 @@ function MessagesView(props) {
                                 <input 
                                     className="form-check-input" 
                                     type="checkbox" 
-                                    id="" 
+                                    disabled="on" 
                                     defaultChecked={Msg.frequency.Fri}
                                 />
                                 <label className="form-check-label" for="">Fri</label>
@@ -119,7 +119,7 @@ function MessagesView(props) {
                                 <input 
                                     className="form-check-input" 
                                     type="checkbox" 
-                                    id="" 
+                                    disabled="on" 
                                     defaultChecked={Msg.frequency.Sat}
                                 />
                                 <label className="form-check-label" for="">Sat</label>
@@ -128,7 +128,7 @@ function MessagesView(props) {
                                 <input 
                                     className="form-check-input" 
                                     type="checkbox" 
-                                    id="" 
+                                    disabled="on" 
                                     defaultChecked={Msg.frequency.Sun}
                                 />
                                 <label className="form-check-label" for="">Sun</label>
