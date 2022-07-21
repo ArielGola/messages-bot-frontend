@@ -7,6 +7,7 @@ import CategoriesInterface from './components/MessagesComponents/CategoriesInter
 import HistoryInterface from './components/HistoryInterface/HistoryInterface';
 import SignIn from './components/UserComponents/SignIn';
 import SignUp from './components/UserComponents/SignUp';
+import ModalComponent from './components/Others/Modal';
 
 import {getToken, initInterceptor} from './helpers/authentication';
 
@@ -17,6 +18,13 @@ function App() {
 
     useEffect(() => {
 
+        function beforeUser() {
+            let bu = localStorage.getItem("beforeUser");
+            if (bu === "true") {
+                setModal(false);
+            };
+        };
+
         function comprobeToken() {
             if (getToken()) {
                 setLogged(true);
@@ -24,6 +32,7 @@ function App() {
             }
         };
 
+        beforeUser();
         comprobeToken();
 
     }, []);
@@ -31,6 +40,8 @@ function App() {
     let CompKey;
 
     const [logged, setLogged] = useState(false);
+
+    const [Modal, setModal] = useState(true);
 
     const handleLogged = (value) => {
         setLogged(value);
@@ -42,8 +53,17 @@ function App() {
         console.log(CompKey);
     };
 
+    const handleModal = () => {
+        setModal(false);
+        localStorage.setItem("beforeUser", "true");
+    };
+
     return (
         <div className="App">
+            {
+            Modal ?
+            <ModalComponent handleModal={handleModal} />
+            :
             <Router>
                 {
                     logged ?
@@ -89,6 +109,7 @@ function App() {
                 }
                 
             </Router>
+            }
         </div>
     );
 }

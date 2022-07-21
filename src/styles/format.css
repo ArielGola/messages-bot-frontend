@@ -161,3 +161,16 @@
         transform: rotate(360deg);
     }
 }
+
+
+/* MODAL */
+
+.bg-modal {
+    background-color: rgb(70, 70, 70);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
