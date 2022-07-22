@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import Axios from 'axios';
+import jwt from 'jsonwebtoken';
 
 import MessagesView from './MessagesView';
 import IndividualMsg from '../IndividualMsg';
@@ -9,8 +10,10 @@ import EditMsg from '../EditMsg';
 import LoaderComponent from '../../Others/Loader';
 
 import { timeIteration } from '../../../helpers/timer';
+import { sessionOut, deleteAccount } from '../../../helpers/authentication';
 
 const GETMSGS_URL = 'http://localhost:4000/mba/message/all';
+const DELETE_ACCOUNT = 'http://localhost:4000/mba/user/delete/';
 
 function MessagesInterface() {
 
@@ -100,6 +103,29 @@ function MessagesInterface() {
         };
     };
 
+/*
+    const sessionOut = () => {
+        deleteToken();
+        window.location.href = "/signin";
+    };
+*/
+/*
+    const deleteAccount = async () => {
+        try {
+            const token = document.cookie.split('=')[1];
+            const decoded = jwt.verify(token, /*process.env.REACT_APP_JWT_SECRET*//* "maNivela_30/9");
+            
+            if (window.confirm("Are you sure of delete your account? It will be permanentlly.")) {
+                await Axios.delete(`${DELETE_ACCOUNT}${decoded.id}`);
+
+                sessionOut();
+            };
+
+        } catch (error) {
+            setError(true);  
+        };
+    };
+*/
 
     return (
         <div className="one-container">
@@ -113,8 +139,8 @@ function MessagesInterface() {
                         aria-expanded="false"><i className="fas fa-bars fa-lg"></i>
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a className="dropdown-item" href='#'>Session Out</a>
-                        <a className="dropdown-item" href='#'>Delete Account</a>
+                        <a className="dropdown-item" href='#' onClick={() => sessionOut()}>Session Out</a>
+                        <a className="dropdown-item" href='#' onClick={() => deleteAccount()}>Delete Account</a>
                     </div>
                 </div>
                 <div className="comp-content">
