@@ -5,6 +5,7 @@ import Axios from 'axios';
 import IndividualMsg from '../MessagesComponents/IndividualMsg';
 import OneHistoryMsg from './OneHistoryMsg';
 import LoaderComponent from '../Others/Loader';
+import ErrorView from '../Others/ErrorView';
 
 const HISTORY_MSGS_URL = "http://localhost:4000/mba/history/";
 
@@ -70,13 +71,18 @@ function HistoryInterface() {
                             </div>
 
                             {
-                                HisMsgs ?
-                                HisMsgs.map(msg => 
-                                    <IndividualMsg msg={msg} key={msg._id} handleSelectedId={handleSelectedId} />
-                                )
+                                !Error ?
+                                    HisMsgs ?
+                                    HisMsgs.map(msg => 
+                                        <IndividualMsg msg={msg} key={msg._id} handleSelectedId={handleSelectedId} />
+                                    )
+                                    :
+                                    <div className='loader-div'>
+                                        <LoaderComponent />
+                                    </div>
                                 :
-                                <div className='loader-div'>
-                                    <LoaderComponent />
+                                <div className="loader-div">
+                                    <ErrorView />
                                 </div>
                             }
 

@@ -5,6 +5,7 @@ import Axios from 'axios';
 import IndividualMsg from '../IndividualMsg';
 import MessagesView from '../MessagesInterface/MessagesView';
 import EditMsg from '../EditMsg';
+import ErrorView from '../../Others/ErrorView';
 
 import { timeIteration } from '../../../helpers/timer';
 
@@ -162,13 +163,18 @@ function CategoriesInterface() {
                             </div>
 
                             {
-                                MsgsFilter ?
-                                MsgsFilter.map((msg) => 
-                                    <IndividualMsg msg={msg} key={msg._id} handleSelectedId={handleSelectedId} />
-                                )
+                                !Error ?
+                                    MsgsFilter ?
+                                    MsgsFilter.map((msg) => 
+                                        <IndividualMsg msg={msg} key={msg._id} handleSelectedId={handleSelectedId} />
+                                    )
+                                    :
+                                    <div className='loader-div'>
+                                        Select a category with entries.
+                                    </div>
                                 :
-                                <div className='loader-div'>
-                                    Select a category with entries.
+                                <div className="loader-div">
+                                    <ErrorView />
                                 </div>
                             }
                         
