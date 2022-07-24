@@ -31,7 +31,6 @@ function EditMsg(props) {
 
             } catch (error) {
                 setError(true);
-                console.log('all wrong', {error});
             };
         };
 

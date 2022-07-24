@@ -48,9 +48,7 @@ function App() {
     };
 
     const refreshFunction = () =>  {
-        console.log("Change key");
         CompKey = Math.floor(Math.random()*1000);
-        console.log(CompKey);
     };
 
     const handleModal = () => {

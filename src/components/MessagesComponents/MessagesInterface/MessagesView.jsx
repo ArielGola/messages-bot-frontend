@@ -17,7 +17,6 @@ function MessagesView(props) {
 
             } catch (error) {
                 setError(true);
-                console.log('all wrong', {error});
             };
         };
 

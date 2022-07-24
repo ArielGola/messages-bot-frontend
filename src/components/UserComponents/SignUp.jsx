@@ -30,8 +30,6 @@ function SignUp(props) {
             document.cookie = `token=${res.data.token}; expires=${now.toUTCString}`;
 
             handleLogged();
-
-            //navigate('/messages');
             
         } catch (error) {
             GetError(true);

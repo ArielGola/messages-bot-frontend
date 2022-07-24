@@ -19,11 +19,9 @@ function MessagesInterface() {
     useEffect(() => {
         try {
 
-            //clearInterval(Interval);
             getMessages();
 
         } catch (error) {
-            console.log("no");
             setError(true);
         };
     }, []);

@@ -5,13 +5,10 @@ const NEW_HISTORY_MSG_URL = "http://localhost:4000/mba/history/add";
 
 
 export function timeIteration(HandleMsgs) {
-    //Interval = setInterval(() => {
     window.timer = setInterval(() => {
     
-        //let today = new Date().toLocaleDateString('en-US', {weekday: 'long'}).slice(0,3);
         let today = new Date().getDay();
 
-        //let timeNow = `${new Date().getHours()}:${new Date().getMinutes()}`;
         let timeNow = new Date().toLocaleTimeString([], {
             timeStyle: 'short'
         });
@@ -29,8 +26,6 @@ function matchDayTime(today, timeNow, HandleMsgs) {
         const arr = Object.entries(msg.frequency);
         if (arr[today][1]) { dayFilter.push(msg); };
     });
-
-    //console.log(dayFilter);
 
     dayFilter.map(msgF => {
         let time = String(msgF.timeSend);
@@ -62,9 +57,7 @@ async function sendMessage(msgF) {
 
         window.open(`Https://web.whatsapp.com/send?phone=${msgF.numSend}&text=${encodedText}&app_absent=0`, "_blank");
         
-        console.log("Sended a grat message!!!");
-        
     } catch (error) {
-        console.log("The things was going wrong");  
+        console.error(error);  
     };
 };

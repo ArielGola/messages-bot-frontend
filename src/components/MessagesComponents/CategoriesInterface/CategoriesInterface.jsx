@@ -32,7 +32,6 @@ function CategoriesInterface() {
                 setLoader(false);
     
             } catch (error) {
-                console.log("no va");
                 setError(true);
             } finally {
                 timeIteration(HandleMsgs);
@@ -42,9 +41,6 @@ function CategoriesInterface() {
         getMessages();
 
     }, []);
-    
-
-    //let Interval;
 
     let HandleMsgs;
 
@@ -57,8 +53,6 @@ function CategoriesInterface() {
     const [MsgsFilter, setMsgsFilter] = useState(false);
 
     const [SelectedMsg, setSelectedMsg] = useState(false);
-
-    //const [Category, setCategory] = useState("");
 
     const [Loader, setLoader] = useState(true);
     const [Error, setError] = useState(false);
@@ -84,7 +78,6 @@ function CategoriesInterface() {
 
     const changeCategory = (value) => {
         try {
-            //setCategory(value);
             category = value;
         } finally {
             filterMsgs();
@@ -106,7 +99,6 @@ function CategoriesInterface() {
             setLoader(false);
 
         } catch (error) {
-            console.log("no va");
             setError(true);
         };
     };
