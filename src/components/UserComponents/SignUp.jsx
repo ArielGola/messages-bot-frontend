@@ -69,6 +69,9 @@ function SignUp(props) {
                             onChange={(e) => setPassword(e.target.value)}  
                         />
                     </div>
+                    <small id="emailHelp" className="form-text text-muted">
+                        <Link to="/signup">If you have an account yet, you click here for login.</Link>
+                    </small>
                 </div>
                 <button type="submit" className="btn btn-primary" onClick={() => onSubmit()}>Sign Up...</button>
             </div>    
