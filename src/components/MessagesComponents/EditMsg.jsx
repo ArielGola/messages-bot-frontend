@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import jwt from 'jsonwebtoken';
 import Axios from 'axios';
 
 const GETMSG_URL = 'http://localhost:4000/mba/message/';

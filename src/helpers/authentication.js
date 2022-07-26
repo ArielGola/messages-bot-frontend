@@ -46,7 +46,7 @@ export const sessionOut = () => {
 export const deleteAccount = async () => {
     try {
         const token = document.cookie.split('=')[1];
-        const decoded = jwt.verify(token, /*process.env.REACT_APP_JWT_SECRET*/ "maNivela_30/9");
+        const decoded = jwt.verify(token, process.env.REACT_APP_JWT_SECRET);
         
         if (window.confirm("Are you sure of delete your account? It will be permanentlly.")) {
             await Axios.delete(`${DELETE_ACCOUNT}${decoded.id}`);

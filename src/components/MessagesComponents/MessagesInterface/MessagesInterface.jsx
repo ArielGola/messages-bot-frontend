@@ -20,6 +20,7 @@ function MessagesInterface() {
         try {
 
             getMessages();
+            console.log(process.env.REACT_APP_JWT_SECRET);
 
         } catch (error) {
             setError(true);
