@@ -1,7 +1,8 @@
+// Modules
 import {useEffect, useState} from 'react';
-
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 
+// Components
 import MessagesInterface from './components/MessagesComponents/MessagesInterface/MessagesInterface';
 import CategoriesInterface from './components/MessagesComponents/CategoriesInterface/CategoriesInterface';
 import HistoryInterface from './components/HistoryInterface/HistoryInterface';
@@ -9,8 +10,10 @@ import SignIn from './components/UserComponents/SignIn';
 import SignUp from './components/UserComponents/SignUp';
 import ModalComponent from './components/Others/Modal';
 
+// Helpers
 import {getToken, initInterceptor} from './helpers/authentication';
 
+// Styles
 import './styles/format.css';
 
 
@@ -18,6 +21,7 @@ function App() {
 
     useEffect(() => {
 
+        // For show or no modal component
         function beforeUser() {
             let bu = localStorage.getItem("beforeUser");
             if (bu === "true") {
@@ -25,6 +29,7 @@ function App() {
             };
         };
 
+        // For show the authorized routes
         function comprobeToken() {
             if (getToken()) {
                 setLogged(true);
@@ -45,10 +50,6 @@ function App() {
 
     const handleLogged = (value) => {
         setLogged(value);
-    };
-
-    const refreshFunction = () =>  {
-        CompKey = Math.floor(Math.random()*1000);
     };
 
     const handleModal = () => {
@@ -74,17 +75,11 @@ function App() {
                         <Route path='/signup' exact element={<Navigate to='/messages' />} />
 
                         <Route path='/messages' exact element={
-                            <MessagesInterface 
-                                key={CompKey}
-                                refreshF={refreshFunction} 
-                            />
+                            <MessagesInterface />
                         } />
 
                         <Route path='/messages/categories' exact element={
-                            <CategoriesInterface 
-                                refreshF={refreshFunction} 
-                                key={CompKey} 
-                            />
+                            <CategoriesInterface />
                         } />
 
                         <Route path='/history' exact element={<HistoryInterface />} />
