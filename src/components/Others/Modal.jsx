@@ -1,7 +1,9 @@
+// Modules
 import React from 'react';
 
 function Modal(props) {
 
+    // State handlers
     const handleModal = () => {
         const modalF = props.handleModal;
         modalF();

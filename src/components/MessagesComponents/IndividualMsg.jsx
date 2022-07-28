@@ -1,14 +1,19 @@
+// Modules
 import React, {useState} from 'react';
+
 
 function IndividualMsg(props) {
 
+    // State
     const [MsgData, setMsgData] = useState(props.msg);
 
+    // State handler
     const handleSelectedId = (newValue) => {
         const handleSelected = props.handleSelectedId;
         handleSelected(newValue);
     };
 
+    
     return (
         <div className="msg-w-container mt-2">
             <div className="list-group p-2">

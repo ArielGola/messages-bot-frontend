@@ -1,11 +1,15 @@
+// Modules
 import React, {useState} from 'react';
 import Axios from 'axios';
 import jwt from 'jsonwebtoken';
 
+
 const CREATEMSG_URL = 'http://localhost:4000/mba/message/create';
+
 
 function CreateMsg(props) {
 
+    // State
     const [NumSend, setNumSend] = useState("");
     const [Time, setTime] = useState("");
     const [Text, setText] = useState("");
@@ -19,15 +23,17 @@ function CreateMsg(props) {
     const [Sat, setSat] = useState(false);
     const [Sun, setSun] = useState(false);
 
+    // State handlers
     const backToMsgs = (newValue) => {
         const doneBack = props.functionDoneBack;
         doneBack(newValue);
-    };
-    
+    }; 
+
     const refreshFunction = () => {
         const refreshF = props.refresh;
         refreshF();
     };
+
 
     const createMsgFunction = async () => {
         try {
@@ -63,6 +69,7 @@ function CreateMsg(props) {
         };
     };
 
+    
     return (
         <div className="card border-primary desc-w-container">
             <h3 className="card-header bg-primary text-white">New Message</h3>

@@ -1,13 +1,17 @@
+// Modules
 import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import Axios from 'axios';
 
+// Components
 import IndividualMsg from '../MessagesComponents/IndividualMsg';
 import OneHistoryMsg from './OneHistoryMsg';
 import LoaderComponent from '../Others/Loader';
 import ErrorView from '../Others/ErrorView';
 
+
 const HISTORY_MSGS_URL = "http://localhost:4000/mba/history/";
+
 
 function HistoryInterface() {
 
@@ -18,12 +22,12 @@ function HistoryInterface() {
     }, []);
 
 
+    // State
     const [HisMsgs, setHisMsgs] = useState(false);
-
     const [SelectedMsg, setSelectedMsg] = useState(false);
-
     const [Error, setError] = useState(false);
     const [Loader, setLoader] = useState(true);
+
 
     let navigate = useNavigate();
 
@@ -41,6 +45,7 @@ function HistoryInterface() {
         };
     };
 
+    
     const handleSelectedId = (newValue) => {
         setSelectedMsg(newValue);
     };

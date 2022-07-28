@@ -1,8 +1,11 @@
+// Modules
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 
+
 const GETMSG_URL = 'http://localhost:4000/mba/message/';
 const EDITMSG_URL = 'http://localhost:4000/mba/message/edit/';
+
 
 function EditMsg(props) {
 
@@ -36,6 +39,7 @@ function EditMsg(props) {
         getMsg();
     }, []);
     
+    // State
     const [Error, setError] = useState(false);
 
     const [MsgOn, setMsgOn] = useState(false);
@@ -53,6 +57,7 @@ function EditMsg(props) {
     const [Sat, setSat] = useState(false);
     const [Sun, setSun] = useState(false);
 
+    // State handlers
     const backToMsgs = (newValue) => {
         const doneBack = props.functionDoneBack;
         doneBack(newValue);
@@ -62,6 +67,7 @@ function EditMsg(props) {
         const refreshF = props.refresh;
         refreshF();
     };
+
 
     const editMsgFunction = async () => {
         try {
@@ -93,7 +99,7 @@ function EditMsg(props) {
         };
     };
 
-    if (MsgOn) {
+
     return (
         <div className="card border-primary desc-w-container">
             <h3 className="card-header bg-primary text-white">Edit Message</h3>
@@ -227,13 +233,6 @@ function EditMsg(props) {
             </div>
         </div>
     )
-    } else {
-        return (
-            <div>
-                Error
-            </div>
-        )
-    }
 }
 
 export default EditMsg

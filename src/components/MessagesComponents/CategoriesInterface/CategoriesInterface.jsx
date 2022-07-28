@@ -1,17 +1,21 @@
+// Modules
 import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import Axios from 'axios';
+import 'datejs';
 
+// Components
 import IndividualMsg from '../IndividualMsg';
 import MessagesView from '../MessagesInterface/MessagesView';
 import EditMsg from '../EditMsg';
 import ErrorView from '../../Others/ErrorView';
 
+// Helpers
 import { timeIteration } from '../../../helpers/timer';
 
-import 'datejs';
 
 const GETMSGS_URL = 'http://localhost:4000/mba/message/all';
+
 
 function CategoriesInterface() {
 
@@ -42,12 +46,12 @@ function CategoriesInterface() {
 
     }, []);
 
+    // Workout variables
     let HandleMsgs;
-
     let category;
-
     let navigate = useNavigate();
-    
+
+    // State
     const [Messages, setMessages] = useState(false);
 
     const [MsgsFilter, setMsgsFilter] = useState(false);
@@ -60,7 +64,7 @@ function CategoriesInterface() {
     const [Edit, setEdit] = useState(false);
     const [View, setView] = useState(true);
 
-
+    // State handlers
     const handleEditConst = (newValue) => {
         setEdit(newValue);
         setView(!newValue);
@@ -74,7 +78,6 @@ function CategoriesInterface() {
     const handleSelectedId = (newValue) => {
         setSelectedMsg(newValue);
     };
-
 
     const changeCategory = (value) => {
         try {

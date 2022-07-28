@@ -1,8 +1,11 @@
+// Modules
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 
+
 const GETMSG_URL = 'http://localhost:4000/mba/message/';
 const DELMSG_URL = 'http://localhost:4000/mba/message/delete/';
+
 
 function MessagesView(props) {
 
@@ -23,13 +26,14 @@ function MessagesView(props) {
         getMsg();
     }, []);
     
+    // State
     const [Error, setError] = useState(false);
 
     const [Selected, setSelected] = useState(false);
 
     const [Msg, setMsg] = useState(false);
 
-
+    // State handlers
     const handleIsEdit = (newValue) => {
         const changeIsEdit = props.functionEdit;
         changeIsEdit(newValue);

@@ -1,7 +1,10 @@
+// Modules
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 
+
 const HISTORY_MSG_URL = "http://localhost:4000/mba/history/";
+
 
 function OneHistoryMsg(props) {
 
@@ -22,11 +25,9 @@ function OneHistoryMsg(props) {
         getMsg();
     }, []);
     
-
+    // State
     const [Msg, setMsg] = useState(false);
-
     const [Selected, setSelected] = useState(false);
-
     const [Error, setError] = useState(false);
 
 

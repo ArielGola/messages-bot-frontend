@@ -1,7 +1,9 @@
+// Modules
 import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import Axios from 'axios';
 
+// Components
 import MessagesView from './MessagesView';
 import IndividualMsg from '../IndividualMsg';
 import CreateMsg from '../CreateMsg';
@@ -9,10 +11,13 @@ import EditMsg from '../EditMsg';
 import LoaderComponent from '../../Others/Loader';
 import ErrorView from '../../Others/ErrorView';
 
+// Helpers
 import { timeIteration } from '../../../helpers/timer';
 import { sessionOut, deleteAccount } from '../../../helpers/authentication';
 
+
 const GETMSGS_URL = 'http://localhost:4000/mba/message/all';
+
 
 function MessagesInterface() {
 
@@ -20,7 +25,6 @@ function MessagesInterface() {
         try {
 
             getMessages();
-            console.log(process.env.REACT_APP_JWT_SECRET);
 
         } catch (error) {
             setError(true);
@@ -49,11 +53,11 @@ function MessagesInterface() {
         };
     };
 
-
+    // Workout variables
     let HandleMsgs;
-
     let navigate = useNavigate();
 
+    // State
     const [Create, setCreate] = useState(false);
     const [Edit, setEdit] = useState(false);
     const [View, setView] = useState(true);
@@ -64,11 +68,7 @@ function MessagesInterface() {
 
     const [SelectedMsg, setSelectedMsg] = useState(false);
 
-
-    const refreshComp = () => {
-        getMessages();
-    };
-
+    // State handlers
     const handleEditConst = (newValue) => {
         setEdit(newValue);
         setCreate(!newValue);
@@ -95,6 +95,10 @@ function MessagesInterface() {
             setEdit(View);
             setView(!View);
         };
+    };
+
+    const refreshComp = () => {
+        getMessages();
     };
 
 

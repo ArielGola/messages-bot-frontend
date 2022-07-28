@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import jwt from 'jsonwebtoken';
 
+
 const DELETE_ACCOUNT = 'http://localhost:4000/mba/user/delete/';
 
 
@@ -9,11 +10,13 @@ export function getToken() {
     return token;
 };
 
+
 export function deleteToken() {
     let date = new Date();
     date.setTime(date.getTime() -10);
     document.cookie = `token=; expires=${date.toGMTString()}`;
 };
+
 
 export function initInterceptor() {
     Axios.interceptors.request.use((config) => {

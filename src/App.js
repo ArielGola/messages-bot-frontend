@@ -42,12 +42,11 @@ function App() {
 
     }, []);
 
-    let CompKey;
-
+    // State
     const [logged, setLogged] = useState(false);
-
     const [Modal, setModal] = useState(true);
 
+    // State handlers
     const handleLogged = (value) => {
         setLogged(value);
     };
@@ -56,6 +55,7 @@ function App() {
         setModal(false);
         localStorage.setItem("beforeUser", "true");
     };
+
 
     return (
         <div className="App">
