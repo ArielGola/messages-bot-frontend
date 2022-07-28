@@ -25,6 +25,7 @@ function matchDayTime(today, timeNow, HandleMsgs) {
     HandleMsgs.map(msg => {
         const arr = Object.entries(msg.frequency);
         if (arr[today][1]) { dayFilter.push(msg); };
+        return true;
     });
 
     dayFilter.map(msgF => {
@@ -36,6 +37,7 @@ function matchDayTime(today, timeNow, HandleMsgs) {
             sendMessage(msgF);
         };
         console.log(time, timeNow);
+        return true;
     });
 };
 
