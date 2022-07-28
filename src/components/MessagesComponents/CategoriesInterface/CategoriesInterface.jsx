@@ -120,8 +120,8 @@ function CategoriesInterface() {
                             aria-expanded="false"><i className="fas fa-bars fa-lg"></i>
                         </button>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a className="dropdown-item" href='#'>Session Out</a>
-                            <a className="dropdown-item" href='#'>Delete Account</a>
+                            <button className="dropdown-item">Session Out</button>
+                            <button className="dropdown-item">Delete Account</button>
                         </div>
                     </div>
                     <div className="comp-content">

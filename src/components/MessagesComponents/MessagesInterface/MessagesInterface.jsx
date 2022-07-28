@@ -114,8 +114,8 @@ function MessagesInterface() {
                         aria-expanded="false"><i className="fas fa-bars fa-lg"></i>
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a className="dropdown-item" href='#' onClick={() => sessionOut()}>Session Out</a>
-                        <a className="dropdown-item" href='#' onClick={() => deleteAccount()}>Delete Account</a>
+                        <button className="dropdown-item" onClick={() => sessionOut()}>Session Out</button>
+                        <button className="dropdown-item" onClick={() => deleteAccount()}>Delete Account</button>
                     </div>
                 </div>
                 <div className="comp-content">

@@ -26,7 +26,7 @@ function MessagesView(props) {
             };
         };
 
-        getMsg();
+        getMsg(); // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     // State

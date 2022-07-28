@@ -18,7 +18,7 @@ function IndividualMsg(props) {
         <div className="msg-w-container mt-2">
             <div className="list-group p-2">
                 <a 
-                    href="" 
+                    href="javascript:void(0)" 
                     className="list-group-item list-group-item-action flex-column align-items-start active"
                     onClick={(e) => {e.preventDefault(); handleSelectedId(MsgData._id)}}
                 >
@@ -28,7 +28,7 @@ function IndividualMsg(props) {
                     </div>
                 </a>
                 <a 
-                    href="" 
+                    href="javascript:void(0)" 
                     className="list-group-item list-group-item-action flex-column align-items-start"
                     onClick={(e) => {e.preventDefault(); handleSelectedId(MsgData._id)}}
                 >
