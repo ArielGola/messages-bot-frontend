@@ -2,6 +2,9 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 
+// Components
+import LoaderComponent from '../../Others/Loader';
+
 
 const GETMSG_URL = 'http://localhost:4000/mba/message/';
 const DELMSG_URL = 'http://localhost:4000/mba/message/delete/';
@@ -146,7 +149,11 @@ function MessagesView(props) {
             </div>   
         )
     } else {
-        <div className="title">no</div>
+        return (
+            <div className='loader-div'>
+                <LoaderComponent />
+            </div>
+        )
     }
 }
 

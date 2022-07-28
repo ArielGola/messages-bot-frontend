@@ -2,6 +2,9 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 
+// Components
+import LoaderComponent from '../Others/Loader';
+
 
 const GETMSG_URL = 'http://localhost:4000/mba/message/';
 const EDITMSG_URL = 'http://localhost:4000/mba/message/edit/';
@@ -68,7 +71,7 @@ function EditMsg(props) {
         refreshF();
     };
 
-
+    
     const editMsgFunction = async () => {
         try {
 
@@ -99,7 +102,7 @@ function EditMsg(props) {
         };
     };
 
-
+    if (MsgOn) {
     return (
         <div className="card border-primary desc-w-container">
             <h3 className="card-header bg-primary text-white">Edit Message</h3>
@@ -233,6 +236,13 @@ function EditMsg(props) {
             </div>
         </div>
     )
+    } else {
+        return (
+            <div className='loader-div'>
+                <LoaderComponent />
+            </div>
+        )
+    }
 }
 
 export default EditMsg
