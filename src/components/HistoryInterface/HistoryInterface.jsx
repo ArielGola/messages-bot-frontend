@@ -26,7 +26,7 @@ function HistoryInterface() {
     const [HisMsgs, setHisMsgs] = useState(false);
     const [SelectedMsg, setSelectedMsg] = useState(false);
     const [Error, setError] = useState(false);
-    const [Loader, setLoader] = useState(true);
+    const [, setLoader] = useState(true);
 
 
     let navigate = useNavigate();

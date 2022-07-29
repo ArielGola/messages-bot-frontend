@@ -59,12 +59,12 @@ function MessagesInterface() {
 
     // State
     const [Create, setCreate] = useState(false);
-    const [Edit, setEdit] = useState(false);
+    const [, setEdit] = useState(false);
     const [View, setView] = useState(true);
 
     const [Messages, setMessages] = useState(false);
     const [Error, setError] = useState(false);
-    const [Loader, setLoader] = useState(true);
+    const [, setLoader] = useState(true);
 
     const [SelectedMsg, setSelectedMsg] = useState(false);
 

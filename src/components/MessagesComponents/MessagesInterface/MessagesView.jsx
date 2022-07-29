@@ -4,6 +4,7 @@ import Axios from 'axios';
 
 // Components
 import LoaderComponent from '../../Others/Loader';
+import ErrorView from '../../Others/ErrorView';
 
 
 const GETMSG_URL = 'http://localhost:4000/mba/message/';
@@ -63,6 +64,7 @@ function MessagesView(props) {
             setError(true);
         }
     };
+
 
     if (Selected) {
         return (
@@ -148,6 +150,10 @@ function MessagesView(props) {
                 </div>
             </div>   
         )
+    } else if (Error) {
+        <div className="loader-div">
+            <ErrorView />
+        </div>
     } else {
         return (
             <div className='loader-div'>

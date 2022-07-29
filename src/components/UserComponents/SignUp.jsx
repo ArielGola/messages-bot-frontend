@@ -12,7 +12,7 @@ function SignUp(props) { // eslint-disable @typescript-eslint/no-unused-vars
     // State
     const [PhNumber, setPhNumber] = useState("");
     const [Password, setPassword] = useState("");
-    const [GetError, setGetError] = useState(false); 
+    const [GetError] = useState(false); 
     
     // State handlers
     const handleLogged = () => {

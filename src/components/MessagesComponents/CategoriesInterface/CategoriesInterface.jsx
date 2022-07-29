@@ -58,10 +58,10 @@ function CategoriesInterface() {
 
     const [SelectedMsg, setSelectedMsg] = useState(false);
 
-    const [Loader, setLoader] = useState(true);
+    const [, setLoader] = useState(true);
     const [Error, setError] = useState(false);
 
-    const [Edit, setEdit] = useState(false);
+    const [, setEdit] = useState(false);
     const [View, setView] = useState(true);
 
     // State handlers

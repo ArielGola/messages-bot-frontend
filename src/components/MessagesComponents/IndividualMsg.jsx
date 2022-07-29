@@ -5,7 +5,7 @@ import React, {useState} from 'react';
 function IndividualMsg(props) {
 
     // State
-    const [MsgData, setMsgData] = useState(props.msg);
+    const [MsgData] = useState(props.msg);
 
     // State handler
     const handleSelectedId = (newValue) => {
