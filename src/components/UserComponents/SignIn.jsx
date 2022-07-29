@@ -1,7 +1,7 @@
 // Modules
 import React, {useState} from 'react';
 import Axios from 'axios';
-import {useNavigate, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 const SIGNIN_URL = 'http://localhost:4000/mba/user/signin';
@@ -11,8 +11,8 @@ function SignIn(props) {
 
     // State
     const [PhNumber, setPhNumber] = useState("");
-    const [Password, setPassword] = useState("");
-    const [GetError, setGetError] = useState(false);
+    const [Password, setPassword] = useState(""); 
+    const [GetError, setGetError] = useState(false); 
 
     // State handlers
     const handleLogged = () => {
