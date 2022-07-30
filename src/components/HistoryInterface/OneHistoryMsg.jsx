@@ -26,6 +26,7 @@ function OneHistoryMsg(props) {
         };
 
         getMsg();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     // State

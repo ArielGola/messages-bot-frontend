@@ -26,9 +26,10 @@ function MessagesInterface() {
 
             getMessages();
 
-        } catch (error) {
+        } catch (error) { 
             setError(true);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
 
