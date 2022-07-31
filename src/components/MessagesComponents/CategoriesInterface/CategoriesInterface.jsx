@@ -43,7 +43,6 @@ function CategoriesInterface() {
         };
 
         getMessages();
-
     }, []);
 
     // Workout variables
