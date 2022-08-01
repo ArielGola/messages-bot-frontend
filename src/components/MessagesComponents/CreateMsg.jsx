@@ -13,7 +13,7 @@ function CreateMsg(props) {
     const [NumSend, setNumSend] = useState("");
     const [Time, setTime] = useState("");
     const [Text, setText] = useState("");
-    const [Category, setCategory] = useState("");
+    const [Category, setCategory] = useState("Family");
     
     const [Mon, setMon] = useState(false);
     const [Tue, setTue] = useState(false);

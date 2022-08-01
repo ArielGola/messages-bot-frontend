@@ -19,6 +19,7 @@ function MessagesView(props) {
 
                 const res = await Axios.get(`${GETMSG_URL}${props.selectedId}`);
 
+                setLoader(false);
                 setMsg(res.data.message);
                 setSelected(res.data.message._id);
 
@@ -32,6 +33,7 @@ function MessagesView(props) {
     
     // State
     const [Error, setError] = useState(false);
+    const [Loader, setLoader] = useState(true);
 
     const [Selected, setSelected] = useState(false);
 
@@ -66,7 +68,13 @@ function MessagesView(props) {
     };
 
 
-    if (Selected) {
+    if (Loader) {
+        return (
+            <div className='loader-div'>
+                <LoaderComponent />
+            </div>
+        )
+    } else if (Selected) {
         return (
             <div className="card border-primary desc-w-container">
                 <h3 className="card-header bg-primary text-white">Message Description</h3>
@@ -154,12 +162,6 @@ function MessagesView(props) {
         <div className="loader-div">
             <ErrorView />
         </div>
-    } else {
-        return (
-            <div className='loader-div'>
-                <LoaderComponent />
-            </div>
-        )
     }
 }
 
