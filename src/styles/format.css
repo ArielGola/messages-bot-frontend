@@ -1,3 +1,5 @@
+/* Box formates */
+
 .one-container {
     display: flex;
     flex-direction: row;
@@ -77,6 +79,16 @@
     box-shadow: 10px 10px 10px 20px rgba(40, 40, 40, .3);
 }
 
+.bg-modal {
+    background-color: rgb(70, 70, 70);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .desc-w-container {
     width: 35vw;
 }
@@ -85,7 +97,20 @@
     width: 45vw;
 }
 
+.list-group-item-action:hover {
+    cursor: pointer;
+}
 
+.align-title {
+    width: 40vw;
+}
+
+.categories-labels {
+    width: 45vw;
+}
+
+
+/* Scrollbar style */
 
 .comp-content::-webkit-scrollbar {
     width: 16px;
@@ -103,16 +128,8 @@
 }
 
 
-.align-title {
-    width: 40vw;
-}
+/* Loader */
 
-.categories-labels {
-    width: 45vw;
-}
-
-
-/* LOADER */
 .loader-div {
     display: flex;
     flex-direction: column;
@@ -161,17 +178,4 @@
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
-}
-
-
-/* MODAL */
-
-.bg-modal {
-    background-color: rgb(70, 70, 70);
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
