@@ -21,29 +21,31 @@ function CategoriesInterface() {
 
     useEffect(() => {
 
-        async function getMessages() {
-            try {
-
-                clearInterval(window.timer);
-
-                setMessages(false);
-                HandleMsgs = [];
-    
-                const res = await Axios.get(GETMSGS_URL);
-
-                HandleMsgs = res.data.messages;
-                setMessages(HandleMsgs);
-                setLoader(false);
-    
-            } catch (error) {
-                setError(true);
-            } finally {
-                timeIteration(HandleMsgs);
-            };
-        };
-
         getMessages();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    
+
+    async function getMessages() {
+        try {
+
+            clearInterval(window.timer);
+
+            setMessages(false);
+            HandleMsgs = [];
+
+            const res = await Axios.get(GETMSGS_URL);
+
+            HandleMsgs = res.data.messages;
+            setMessages(HandleMsgs);
+            setLoader(false);
+
+        } catch (error) {
+            setError(true);
+        } finally {
+            timeIteration(HandleMsgs);
+        };
+    };
 
     // Workout variables
     let HandleMsgs;
