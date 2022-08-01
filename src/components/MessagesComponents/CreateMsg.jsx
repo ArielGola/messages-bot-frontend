@@ -76,7 +76,7 @@ function CreateMsg(props) {
             <div className="card-body flex-wrap">
                 <div className="form-row">  
                     <div className="form-group col-md-6">
-                        <label className="col-form-label" for="inputDefault">Message To</label>
+                        <label className="col-form-label" htmlFor="inputDefault">Message To</label>
                         <input 
                             type="text" 
                             className="form-control" 
@@ -85,12 +85,12 @@ function CreateMsg(props) {
                         />
                     </div>
                     <div className="form-group col-md-6">
-                        <label className="col-form-label" for="inputDefault">Time</label>
+                        <label className="col-form-label" htmlFor="inputDefault">Time</label>
                         <input type="time" className="form-control" onChange={(e) => setTime(e.target.value)} />
                     </div>
                 </div>
                 <div className="form-group">
-                    <label className="col-form-label" for="inputDefault">Text</label>
+                    <label className="col-form-label" htmlFor="inputDefault">Text</label>
                     <textarea 
                         className='form-control' 
                         rows="3" 
@@ -100,7 +100,7 @@ function CreateMsg(props) {
                     />
                 </div>
                 <div className="form-group">
-                    <label className="col-form-label" for="inputDefault">Category</label>
+                    <label className="col-form-label" htmlFor="inputDefault">Category</label>
                     <select 
                         className="form-control" 
                         id="exampleFormControlSelect1" 
@@ -124,7 +124,7 @@ function CreateMsg(props) {
                                 id="" 
                                 onChange={(e) => setMon(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Mon</label>
+                            <label className="form-check-label" htmlFor="">Mon</label>
                         </div>
                         <div className="form-check form-check-inline mr-3">
                             <input 
@@ -133,7 +133,7 @@ function CreateMsg(props) {
                                 id="" 
                                 onChange={(e) => setTue(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Tue</label>
+                            <label className="form-check-label" htmlFor="">Tue</label>
                         </div>
                         <div className="form-check form-check-inline mr-3">
                             <input 
@@ -142,7 +142,7 @@ function CreateMsg(props) {
                                 id="" 
                                 onChange={(e) => setWed(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Wed</label>
+                            <label className="form-check-label" htmlFor="">Wed</label>
                         </div>
                         <div className="form-check form-check-inline mr-3">
                             <input 
@@ -151,7 +151,7 @@ function CreateMsg(props) {
                                 id="" 
                                 onChange={(e) => setThu(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Thu</label>
+                            <label className="form-check-label" htmlFor="">Thu</label>
                         </div>
                         <div className="form-check form-check-inline mr-3">
                             <input 
@@ -160,7 +160,7 @@ function CreateMsg(props) {
                                 id="" 
                                 onChange={(e) => setFri(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Fri</label>
+                            <label className="form-check-label" htmlFor="">Fri</label>
                         </div>
                         <div className="form-check form-check-inline mr-3">
                             <input 
@@ -169,7 +169,7 @@ function CreateMsg(props) {
                                 id="" 
                                 onChange={(e) => setSat(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Sat</label>
+                            <label className="form-check-label" htmlFor="">Sat</label>
                         </div>
                         <div className="form-check form-check-inline mr-3">
                             <input 
@@ -178,7 +178,7 @@ function CreateMsg(props) {
                                 id="" 
                                 onChange={(e) => setSun(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Sun</label>
+                            <label className="form-check-label" htmlFor="">Sun</label>
                         </div>
                     </div>
                 </div>

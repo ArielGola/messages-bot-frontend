@@ -111,7 +111,7 @@ function EditMsg(props) {
             <div className="card-body flex-wrap">
                 <div className="form-row">  
                     <div className="form-group col-md-6">
-                        <label className="col-form-label" for="inputDefault">Message To</label>
+                        <label className="col-form-label" htmlFor="inputDefault">Message To</label>
                         <input 
                             type="text" 
                             className="form-control" 
@@ -121,7 +121,7 @@ function EditMsg(props) {
                         />
                     </div>
                     <div className="form-group col-md-6">
-                        <label className="col-form-label" for="inputDefault">Date & Time</label>
+                        <label className="col-form-label" htmlFor="inputDefault">Date & Time</label>
                         <input 
                             defaultValue={Time} 
                             type="time" 
@@ -131,7 +131,7 @@ function EditMsg(props) {
                     </div>
                 </div>
                 <div className="form-group">
-                    <label className="col-form-label" for="inputDefault">Text</label>
+                    <label className="col-form-label" htmlFor="inputDefault">Text</label>
                     <textarea 
                         defaultValue={Text} 
                         className='form-control' 
@@ -141,7 +141,7 @@ function EditMsg(props) {
                     />
                 </div>
                 <div className="form-group">
-                    <label className="col-form-label" for="inputDefault">Category</label>
+                    <label className="col-form-label" htmlFor="inputDefault">Category</label>
                     <select 
                         defaultValue={Category} 
                         className="form-control" 
@@ -167,7 +167,7 @@ function EditMsg(props) {
                                 defaultChecked={Mon}
                                 onChange={(e) => setMon(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Mon</label>
+                            <label className="form-check-label" htmlFor="">Mon</label>
                         </div>
                         <div className="form-check form-check-inline mr-3">
                             <input 
@@ -177,7 +177,7 @@ function EditMsg(props) {
                                 defaultChecked={Tue}
                                 onChange={(e) => setTue(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Tue</label>
+                            <label className="form-check-label" htmlFor="">Tue</label>
                         </div>
                         <div className="form-check form-check-inline mr-3">
                             <input 
@@ -187,7 +187,7 @@ function EditMsg(props) {
                                 defaultChecked={Wed}
                                 onChange={(e) => setWed(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Wed</label>
+                            <label className="form-check-label" htmlFor="">Wed</label>
                         </div>
                         <div className="form-check form-check-inline mr-3">
                             <input 
@@ -197,7 +197,7 @@ function EditMsg(props) {
                                 defaultChecked={Thu}
                                 onChange={(e) => setThu(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Thu</label>
+                            <label className="form-check-label" htmlFor="">Thu</label>
                         </div>
                         <div className="form-check form-check-inline mr-3">
                             <input 
@@ -207,7 +207,7 @@ function EditMsg(props) {
                                 defaultChecked={Fri}
                                 onChange={(e) => setFri(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Fri</label>
+                            <label className="form-check-label" htmlFor="">Fri</label>
                         </div>
                         <div className="form-check form-check-inline mr-3">
                             <input 
@@ -217,7 +217,7 @@ function EditMsg(props) {
                                 defaultChecked={Sat}
                                 onChange={(e) => setSat(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Sat</label>
+                            <label className="form-check-label" htmlFor="">Sat</label>
                         </div>
                         <div className="form-check form-check-inline mr-3">
                             <input 
@@ -227,7 +227,7 @@ function EditMsg(props) {
                                 defaultChecked={Sun}
                                 onChange={(e) => setSun(e.target.checked)}
                             />
-                            <label className="form-check-label" for="">Sun</label>
+                            <label className="form-check-label" htmlFor="">Sun</label>
                         </div>
                     </div>
                 </div>

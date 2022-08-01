@@ -12,10 +12,10 @@ function Modal(props) {
     return (
         <div className="bg-modal">
             
-            <div class="card bg-light mb-3">
-                <div class="card-header">Introduction</div>
-                <div class="card-body">
-                    <h4 class="card-title">Welcome to app</h4>
+            <div className="card bg-light mb-3">
+                <div className="card-header">Introduction</div>
+                <div className="card-body">
+                    <h4 className="card-title">Welcome to app</h4>
                     <p>This app is a bot for help us to send messages with certain time and date in Whatsapp.</p>
                     <p>First we need to know somethings:</p>
                     <ul>

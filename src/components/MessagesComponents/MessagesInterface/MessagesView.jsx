@@ -93,7 +93,7 @@ function MessagesView(props) {
                                     disabled="on" 
                                     defaultChecked={Msg.frequency.Mon}
                                 />
-                                <label className="form-check-label" for="">Mon</label>
+                                <label className="form-check-label" htmlFor="">Mon</label>
                             </div>
                             <div className="form-check form-check-inline mr-3">
                                 <input 
@@ -102,7 +102,7 @@ function MessagesView(props) {
                                     disabled="on" 
                                     defaultChecked={Msg.frequency.Tue}
                                 />
-                                <label className="form-check-label" for="">Tue</label>
+                                <label className="form-check-label" htmlFor="">Tue</label>
                             </div>
                             <div className="form-check form-check-inline mr-3">
                                 <input 
@@ -111,7 +111,7 @@ function MessagesView(props) {
                                     disabled="on" 
                                     defaultChecked={Msg.frequency.Wed}
                                 />
-                                <label className="form-check-label" for="">Wed</label>
+                                <label className="form-check-label" htmlFor="">Wed</label>
                             </div>
                             <div className="form-check form-check-inline mr-3">
                                 <input 
@@ -120,7 +120,7 @@ function MessagesView(props) {
                                     disabled="on" 
                                     defaultChecked={Msg.frequency.Thu}
                                 />
-                                <label className="form-check-label" for="">Thu</label>
+                                <label className="form-check-label" htmlFor="">Thu</label>
                             </div>
                             <div className="form-check form-check-inline mr-3">
                                 <input 
@@ -129,7 +129,7 @@ function MessagesView(props) {
                                     disabled="on" 
                                     defaultChecked={Msg.frequency.Fri}
                                 />
-                                <label className="form-check-label" for="">Fri</label>
+                                <label className="form-check-label" htmlFor="">Fri</label>
                             </div>
                             <div className="form-check form-check-inline mr-3">
                                 <input 
@@ -138,7 +138,7 @@ function MessagesView(props) {
                                     disabled="on" 
                                     defaultChecked={Msg.frequency.Sat}
                                 />
-                                <label className="form-check-label" for="">Sat</label>
+                                <label className="form-check-label" htmlFor="">Sat</label>
                             </div>
                             <div className="form-check form-check-inline mr-3">
                                 <input 
@@ -147,7 +147,7 @@ function MessagesView(props) {
                                     disabled="on" 
                                     defaultChecked={Msg.frequency.Sun}
                                 />
-                                <label className="form-check-label" for="">Sun</label>
+                                <label className="form-check-label" htmlFor="">Sun</label>
                             </div>
                         </div>
                     </li>

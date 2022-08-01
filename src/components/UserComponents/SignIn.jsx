@@ -54,7 +54,7 @@ function SignIn(props) {
                 <div className="card-header">Sign In</div>
                 <div className="card-body">
                     <div className="form-group">
-                        <label for="exampleInputEmail1" className="form-label mt-3">Phone number</label>
+                        <label htmlFor="exampleInputEmail1" className="form-label mt-3">Phone number</label>
                         <input 
                             type="text" className="form-control" 
                             placeholder="Enter your phone number" 
@@ -63,7 +63,7 @@ function SignIn(props) {
                         <small id="emailHelp" className="form-text text-muted">We'll never share your phone number with anyone else.</small>
                     </div>
                     <div className="form-group">
-                        <label for="exampleInputPassword1" className="form-label mt-3">Password</label>
+                        <label htmlFor="exampleInputPassword1" className="form-label mt-3">Password</label>
                         <input 
                             type="password" 
                             className="form-control" 
