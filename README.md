@@ -7,6 +7,7 @@
 * _REACT_APP_JWT_SECRET_, the key for use jsonwebtoken functions.
 ## Installation
 * git clone https://github.com/ArielGola/messages-bot-frontend
+* cd messages-bot-frontend
 * npm install
 * npm run build
 * npm start
